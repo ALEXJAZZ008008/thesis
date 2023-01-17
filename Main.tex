@@ -77,12 +77,15 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+\usepackage[top=6.0cm, bottom=1.25cm, left=6.5cm, right=0.5cm, headheight=1.0cm]{geometry}
+
+\usepackage[activate={true, nocompatibility}, final, tracking=true, kerning=true, spacing=true, factor=1100, stretch=10, shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+
 \usepackage[acronym, nomain]{glossaries}
 \input{glossary}
 
 \makeglossaries
-
-\usepackage[top=6.0cm, bottom=1.25cm, left=6.5cm, right=0.5cm, headheight=1.0cm]{geometry}
 
 \usepackage{fancyref}
 \usepackage{fancyhdr}
@@ -118,7 +121,7 @@
     \mathrm{I}%
 }
 
-\usepackage{siunitx}
+\usepackage[binary-units]{siunitx}
 
 \usepackage[]{algorithm2e}
 \DontPrintSemicolon
@@ -130,6 +133,7 @@
 \headsep=1cm
 
 \addbibresource{./bibtex/bib/Biblio.bib}
+\addbibresource{./bibtex/bib/extrabib.bib}
 
 \begin{document}
     %\nobibliography*
