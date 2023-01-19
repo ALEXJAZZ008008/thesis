@@ -89,6 +89,7 @@
 
 \usepackage{fancyref}
 \usepackage{fancyhdr}
+
 \newcommand{\longtitle}[1]
 {%
     \protect\parbox[.]{0.9\linewidth}{\strut #1 \strut}\hfill\vspace*{1.0cm}%
@@ -99,11 +100,6 @@
     \section[#1]{#1%
     \sectionmark{\longtitle{#1}}} \label{#2}%
     \sectionmark{\longtitle{#1}}%
-}
-
-\newcommand{\boxcite}[1]
-{%
-    [\cite{#1}]%
 }
 
 \newcommand{\rmd}
@@ -157,9 +153,10 @@
     
     \include{Chapter1Introduction}
     \include{Chapter2Background}
-    \include{Chapter3MotionCorrectionResults}
-    \include{Chapter4DataDrivenSurrogateSignalExtractionResults}
-    \include{Chapter5DiscussionAndConclusion}
+    \include{Chapter3MotionCorrectionOne}
+    \include{Chapter4MotionCorrectionTwo}
+    \include{Chapter5DataDrivenSurrogateSignalExtraction}
+    \include{Chapter6DiscussionAndConclusion}
     \include{Appendices} 
     % You could separate these out into different files if you have
     %  particularly large appendices.

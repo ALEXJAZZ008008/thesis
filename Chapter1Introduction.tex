@@ -1,4 +1,14 @@
 \chapter{Introduction} \label{sec:introduction}
+    \vspace*{\fill}
+    \setlength{\epigraphwidth}{0.3\linewidth}
+    \renewcommand{\epigraphflush}{flushright}
+    \renewcommand{\epigraphsize}{\footnotesize}
+    \epigraph{Every breath you take\newline
+              And every move you make\newline
+              ................................\newline
+              I'll be watching you}%
+              {\textit{Every Breath You Take}\\ \textsc{The Police}}
+    
     \newpage
     
     \longsection{Introduction}{sec:introduction_introduction}
@@ -7,7 +17,7 @@
     \longsection{Motivation}{sec:motivation}
         %KT for whatever reason the first PET isn't spelled-out. I'd force it to do that here(if you can)
         %ACW done
-        \gls{PET}/\gls{CT} is a hybrid medical imaging modality which combines \gls{PET}, a functional imaging technique used to capture data related to the internal metabolic processes of a subject, with an anatomical imaging modality called \gls{CT}. Every year in the UK just over $150,000$ \gls{PET}/\gls{CT} scans are performed, the majority of these scans are used in the diagnosis and treatment of cancer~\boxcite{NHSEngland2019Diagnostic2018/19}.
+        \gls{PET}/\gls{CT} is a hybrid medical imaging modality which combines \gls{PET}, a functional imaging technique used to capture data related to the internal metabolic processes of a subject, with an anatomical imaging modality called \gls{CT}. Every year in the UK just over $150,000$ \gls{PET}/\gls{CT} scans are performed, the majority of these scans are used in the diagnosis and treatment of cancer~\parencite{NHSEngland2019Diagnostic2019/20}.
     
         %KT I'd consider moving this paragraph to Background, but as you wish
         %KT LOR is also not spelled-out. weird. but I wouldn't include LOR in the 2nd sentence, but a bit further down (where you say ``line'')
@@ -44,7 +54,7 @@
         \begin{itemize}
             %KT I'd remove the ``limb'' here. There's really nothing whatsoever done on limb motion in PET, and arms don't move rigidly.
             %ACW done
-            \item Head motion is mostly comprised of \glss{RD}. This means that while the object may, for instance, translate or rotate, the space between the points contained within the object do not change. This is in comparison to \glss{NRD} (where the distance between the points contained within the object can change). This concept could be simplified by thinking of a solid and a malleable object, the solid object can be transformed by translating every point of it uniformly but it cannot be deformed, whereas with the malleable object not only can it be translated as a whole but the object itself can be deformed. \gls{RM} is a \gls{NRD}. There is already a large amount of research in the field of \gls{RD} \gls{MC} and to a certain degree it could be considered a solved problem~\boxcite{Hill2001}.
+            \item Head motion is mostly comprised of \glss{RD}. This means that while the object may, for instance, translate or rotate, the space between the points contained within the object do not change. This is in comparison to \glss{NRD} (where the distance between the points contained within the object can change). This concept could be simplified by thinking of a solid and a malleable object, the solid object can be transformed by translating every point of it uniformly but it cannot be deformed, whereas with the malleable object not only can it be translated as a whole but the object itself can be deformed. \gls{RM} is a \gls{NRD}. There is already a large amount of research in the field of \gls{RD} \gls{MC} and to a certain degree it could be considered a solved problem~\parencite{Hill2001}.
                 
             \item When a \gls{PET} acquisition is taken of the head, usually measures are taken to immobilise the patient. It is not possible to immobilise the respiratory or cardiac motion of a patient. While it may be true that patients can usually hold their breath during a short \gls{CT} acquisition it is not possible for them to hold their breath during a much longer \gls{PET} acquisition. Thus it is more necessary to correct for these types of inevitable motion.
     

@@ -431,9 +431,9 @@
         {\Large \itshape \@author}\\[2em]%
     \end{center}%
     % \vfill%
-        \begin{center}
-            Supervisors:\\
-            \@supervisors
+    \begin{center}
+    Supervisors:\\
+    \@supervisors
     \end{center}
     % \vfill%
     \vspace{1em}%
@@ -460,7 +460,10 @@
       \newpage%
     \fi
     \clearpage%
+    \thispagestyle{empty}
+    \vspace*{\fill}%
     I, \@author , confirm that the work presented in this thesis is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.
+    \vfill%
     \clearpage%
 }
 %    \end{macrocode}
