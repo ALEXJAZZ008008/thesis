@@ -30,7 +30,7 @@
                 \label{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_overview}
             \end{figure}
             
-            The following subsections will address the method with respect to the diagram seen in~\Fref{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_overview}. Additionally, a full combined diagram can be seen in~\Fref{sec:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_full_overview} in~\Fref{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_appendix_full_overview}.
+            The following subsections will address the method with respect to the diagram seen in~\Fref{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_overview}. Additionally, a full combined diagram can be seen in~\Fref{sec:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_full_overview_appendix} in~\Fref{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_full_overview_appendix}.
             
             \subsection{Data Acquisition} \label{sec:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_data_acquisition}
                 Data was used from a research study with patients suffering from idiopathic pulmonary fibrosis. $21$ dynamic \gls{18F-FDG} acquisitions, with a \gls{FOV} covering the upper lung and heart, were acquired on a \gls{GE} Discovery $710$. Each acquisition lasted approximately \SI{20}{\minute} with the acquisition starting before injection of the radiotracer. \glss{SS} were acquired in parallel using a \gls{RPM}.
@@ -106,7 +106,7 @@
                             W := PC \cdot D
                         \end{equation}
         
-                        \noindent where in~\Fref{eq:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_pc_weights} $W$ is the weights (or signal) found when multiplying the \gls{PC} $PC$ by data $D$ and summing. In fact, a similar equation is used by \gls{SAM}, where a "signed mask" is multiplied with the data and summed. Therefore this method would be applicable to SAM as well, although this has not been done yet in this work.
+                        \noindent where in~\Fref{eq:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_pc_weights} $W$ is the weights (or signal) found when multiplying the \gls{PC} $PC$ by data $D$ and summing. In fact, a similar equation is used by \gls{SAM}, where a 'signed mask' is multiplied with the data and summed. Therefore this method would be applicable to SAM as well, although this has not been done yet in this work.
                     \end{itemize}
                     
                     A flowchart of the above can be seen in~\Fref{fig:pca_data_driven_surrogate_signal_extraction_methods_for_dynamic_pet_methods_get_signal}.

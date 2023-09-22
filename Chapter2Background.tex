@@ -189,73 +189,74 @@
             
             \noindent where $T$ is the number of true coincidences, $S$ is the number of scattered coincidences and $R$ is the number of random coincidences. %Thus the usual total sum of scattered and random coincidences when compared to true coincidences is a ratio of $2$ to $1$. %KT this last sentence is incorrect. depends on count-rate, amount of scatter etc etc. Delete it %ACW done
             
-%            \subsubsection{2D and 3D Acquisition} \label{sec:2d_and_3d_acquisition}
+            \subsubsection{2D and 3D Acquisition} \label{sec:2d_and_3d_acquisition}
                 %KT the 2D stuff reads as if in 2D PET there were collimators between all detectors, but in fact they were only between rings.
                 %I highly recommend cutting this subsubsection. Detail not relevant to your work.
                 %ACW depressingly done
-%                \begin{figure}
-%                    \centering
+                \begin{figure}
+                    \centering
                     
-%                    \includegraphics[width=1.0\linewidth]{figures/background_septa.png}
+                    \includegraphics[width=1.0\linewidth]{figures/background_septa.png}
                     
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of the cross section of the septa used for collimation in \gls{2D} \gls{PET} acquisitions. In this figure a point can be shown casting paths into the slits of the septa, as can be seen the paths from the point can only pass through the slits of the septa in positions where the angle of the line with respect the the walls of the septa is acute.} \label{fig:2d_and_3d_acquisition_septa}
-%                \end{figure}
+                    \captionsetup{singlelinecheck=false, justification=raggedright}
+                    \caption{Graphical representation of the cross section of the septa used for collimation in \gls{2D} \gls{PET} acquisitions. In this figure a point can be shown casting paths into the slits of the septa, as can be seen the paths from the point can only pass through the slits of the septa in positions where the angle of the line with respect the the walls of the septa is acute.} \label{fig:2d_and_3d_acquisition_septa}
+                \end{figure}
                 
-%                There are two different methods used in \gls{PET} to determine or constrain to be certain of the spatial position or angle of the \gls{LOR} along the axis of the scanner, these are:
+                There are two different methods used in \gls{PET} to determine or constrain to be certain of the spatial position or angle of the \gls{LOR} along the axis of the scanner, these are:
                 
-%                \begin{itemize}
-%                    \item The method which was used for a long time in other applications (such as \gls{SPECT}) and until recently in \gls{PET} was; to place a block of, usually, tungsten metal (for its photon absorbing properties) in front of all of the detectors, this block is called s septa, this can be seen in~\Fref{fig:2d_and_3d_acquisition_septa}. The septa has very small slits cut into it which would only allow photons to pass through which entered the slits at an acute angle. Thus the septa constrains the photons to being almost perpendicular to the detector (on axis) and as such each detector only receives signal from annihilations that occur within its ring. This process is called collimation and the subsequent acquisition is called a \gls{2D} acquisition, \gls{2D} not because it results in a single image but because it is comprised of distinct \gls{2D} projections.
+                \begin{itemize}
+                    \item The method which was used for a long time in other applications (such as \gls{SPECT}) and until recently in \gls{PET} was; to place a block of, usually, tungsten metal (for its photon absorbing properties) in front of all of the detectors, this block is called s septa, this can be seen in~\Fref{fig:2d_and_3d_acquisition_septa}. The septa has very small slits cut into it which would only allow photons to pass through which entered the slits at an acute angle. Thus the septa constrains the photons to being almost perpendicular to the detector (on axis) and as such each detector only receives signal from annihilations that occur within its ring. This process is called collimation and the subsequent acquisition is called a \gls{2D} acquisition, \gls{2D} not because it results in a single image but because it is comprised of distinct \gls{2D} projections.
                     
-%                    \item The more modern method is to simply remove the septa from the scanner and to record coincidences between all rings. This is significantly more computationally expensive than a \gls{2D} acquisition but it also increases the sensitivity of the scanner meaning that scanning times can be reduced. Because this method produces projections between all rings it is known as a \gls{3D} acquisition~\parencite{Schmitz2013, Bailey1998ExperienceTomographs}.
-%                \end{itemize}
+                    \item The more modern method is to simply remove the septa from the scanner and to record coincidences between all rings. This is significantly more computationally expensive than a \gls{2D} acquisition but it also increases the sensitivity of the scanner meaning that scanning times can be reduced. Because this method produces projections between all rings it is known as a \gls{3D} acquisition~\parencite{Schmitz2013, Bailey1998ExperienceTomographs}.
+                \end{itemize}
             
-%            \subsubsection{Photon Detection} \label{sec:photon_detection}
+            \subsubsection{Photon Detection} \label{sec:photon_detection}
                 %KT I did not read this. Far far too much detail for your thesis. I highly recommend commenting it out
                 %ACW depressingly done
-%                \begin{figure}
-%                    \centering
+                %ACW undone
+                \begin{figure}
+                    \centering
                     
-%                    \includegraphics[width=1.0\linewidth]{figures/background_detector.png}
+                    \includegraphics[width=1.0\linewidth]{figures/background_detector.png}
                     
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of the block detector structure of the scintillator crystal and the photodetector (with multiple scintillator crystals per photodetector), on the left of the figure, and an example of how these block detectors would be combined to construct a ring of a \gls{PET} scanner, on the right of this figure.} \label{fig:photon_detection_detector}
-%                \end{figure}
+                    \captionsetup{singlelinecheck=false, justification=raggedright}
+                    \caption{Graphical representation of the block detector structure of the scintillator crystal and the photodetector (with multiple scintillator crystals per photodetector), on the left of the figure, and an example of how these block detectors would be combined to construct a ring of a \gls{PET} scanner, on the right of this figure.} \label{fig:photon_detection_detector}
+                \end{figure}
                 
-%                \begin{figure}
-%                    \centering
+                \begin{figure}
+                    \centering
                     
-%                    \includegraphics[width=1.0\linewidth]{figures/background_photomultiplier.png}
+                    \includegraphics[width=1.0\linewidth]{figures/background_photomultiplier.png}
                     
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of a scintillator crystal coupled to a \gls{PMT}. On the left of this figure a photon can be seen impinging upon the scintillator crystal and then being attenuated by the photoelectric effect at some depth. The electrons produced by this can then be seen, in the centre of this figure, interacting with the photocathode before being focused onto the first dynode. On the right of this figure, a naive representation, the amplification of the electrons can be seen by subsequent dynodes.} \label{fig:photon_detection_photomultiplier}
-%                \end{figure}
+                    \captionsetup{singlelinecheck=false, justification=raggedright}
+                    \caption{Graphical representation of a scintillator crystal coupled to a \gls{PMT}. On the left of this figure a photon can be seen impinging upon the scintillator crystal and then being attenuated by the photoelectric effect at some depth. The electrons produced by this can then be seen, in the centre of this figure, interacting with the photocathode before being focused onto the first dynode. On the right of this figure, a naive representation, the amplification of the electrons can be seen by subsequent dynodes.} \label{fig:photon_detection_photomultiplier}
+                \end{figure}
                 
-%                PET detectors consist of two main components; a scintillator crystal, which, partially because of the photoelectric effect, when exposed to ionising radiation produces visible light through luminescence, and a photodetector or photomultiplier which amplifies the intensity of an input light similarly to how a vacuum tube or a transistor would amplify an electrical signal. These can be seen in~\Fref{fig:photon_detection_detector}.
+                PET detectors consist of two main components; a scintillator crystal, which, partially because of the photoelectric effect, when exposed to ionising radiation produces visible light through luminescence, and a photodetector or photomultiplier which amplifies the intensity of an input light similarly to how a vacuum tube or a transistor would amplify an electrical signal. These can be seen in~\Fref{fig:photon_detection_detector}.
                 
-%                For use in \gls{PET} the following properties are desirable for a scintillator crystal:
+                For use in \gls{PET} the following properties are desirable for a scintillator crystal:
                 
-%                \begin{itemize}
-%                    \item Firstly, the crystal should have a high stopping power. This means that the photon does not travel a great distance into the crystal before it undergoes attenuation by the photoelectric effect. Usually the higher the density of the scintillator crystal the greater the stopping power~\parencite{Derenzo2003TheScintillator}.
+                \begin{itemize}
+                    \item Firstly, the crystal should have a high stopping power. This means that the photon does not travel a great distance into the crystal before it undergoes attenuation by the photoelectric effect. Usually the higher the density of the scintillator crystal the greater the stopping power~\parencite{Derenzo2003TheScintillator}.
                     
-%                    \item Secondly, for each incident photon the scintillator should have a high light output. This not only means that the work photomultiplier will have to amplify the output less but it also means that discriminating between scattered and unscattered photons will be easier as the discrepancy between the output intensity of the two will be greater.
+                    \item Secondly, for each incident photon the scintillator should have a high light output. This not only means that the work photomultiplier will have to amplify the output less but it also means that discriminating between scattered and unscattered photons will be easier as the discrepancy between the output intensity of the two will be greater.
 
-%                    \item Thirdly, the scintillator should return to a state where it can luminesce again rapidly after each incident photon. This means that more photons can be detected over time and that the exact moment a photon is attenuated can be better measured.
+                    \item Thirdly, the scintillator should return to a state where it can luminesce again rapidly after each incident photon. This means that more photons can be detected over time and that the exact moment a photon is attenuated can be better measured.
                     
-%                    \item Finally, a scintillator crystal should not be hygroscopic. To be hygroscopic means that something has a tendency to absorb water.
-%                \end{itemize}
+                    \item Finally, a scintillator crystal should not be hygroscopic. To be hygroscopic means that something has a tendency to absorb water.
+                \end{itemize}
                 
-%                The first \gls{PET} scanners used \gls{NaI} scintillator crystals before moving to \gls{BGO} and then to \gls{LSO} and \gls{LYSO}. Each new generation of scintillator crystals provided a different balance of the above characteristics. \gls{LSO} and \gls{LYSO} have the best combination of efficiency and time resolution while not being hygroscopic~\parencite{BGOCherenkovBib, ScintilatorsBib, Mao2013CrystalCrystals}.
+                The first \gls{PET} scanners used \gls{NaI(Ti)} scintillator crystals before moving to \gls{BGO} and then to \gls{LSO} and \gls{LYSO}. Each new generation of scintillator crystals provided a different balance of the above characteristics. \gls{LSO} and \gls{LYSO} have the best combination of efficiency and time resolution while not being hygroscopic~\parencite{BGOCherenkovBib, ScintilatorsBib, Mao2013CrystalCrystals}.
                 
-%                There are three main types of photodetector or photomultiplier, these are:
+                There are three main types of photodetector or photomultiplier, these are:
                 
-%                \begin{itemize}
-%                    \item The first kind of photodetector to be used in \gls{PET} was the \gls{PMT}, this device functions using an initial photocathode and a focusing electrode which takes the output from the scintillator and directs it towards a chain of dynodes. Dynodes are an intermediate electrode which when struck by a photoelectron emit more photoelectrons at a more positive electrical potential through secondary emission. Each subsequent dynode is a a higher potential and emits more photoelectrons than the last causing the input signal to be amplified, this can be seen in~\Fref{fig:photon_detection_photomultiplier}. Some disadvantages of \glss{PMT} are that they are relatively bulky, are effected by a magnetic field and have a relatively low efficiency at approximately \SI{25.0}{\percent}~\parencite{petspringer, SiPmBib}.
+                \begin{itemize}
+                    \item The first kind of photodetector to be used in \gls{PET} was the \gls{PMT}, this device functions using an initial photocathode and a focusing electrode which takes the output from the scintillator and directs it towards a chain of dynodes. Dynodes are an intermediate electrode which when struck by a photoelectron emit more photoelectrons at a more positive electrical potential through secondary emission. Each subsequent dynode is a a higher potential and emits more photoelectrons than the last causing the input signal to be amplified, this can be seen in~\Fref{fig:photon_detection_photomultiplier}. Some disadvantages of \glss{PMT} are that they are relatively bulky, are effected by a magnetic field and have a relatively low efficiency at approximately \SI{25.0}{\percent}~\parencite{petspringer, SiPmBib}.
                     
-%                    \item To attempt to combat the low efficiency mentioned above the \gls{APD} was developed, this device utilises a semiconductor where there is a junction between positive and negative type silicone, this is similar to a traditional diode. This allows for efficiencies approaching \SI{85.0}{\percent}, they are much smaller than \glss{PMT} and are safe to be used in a magnetic field. However, this also comes with the drawbacks that \glss{APD} produces so much heat that it requires an active cooling system and exhibits worse timing characteristics than \glss{PMT}~\parencite{AvalanchePhotodiodeBib}. \glss{APD} are the choice of many modern \gls{PET}/\gls{CT} scanners~\parencite{Vandendriessche2019}.
+                    \item To attempt to combat the low efficiency mentioned above the \gls{APD} was developed, this device utilises a semiconductor where there is a junction between positive and negative type silicone, this is similar to a traditional diode. This allows for efficiencies approaching \SI{85.0}{\percent}, they are much smaller than \glss{PMT} and are safe to be used in a magnetic field. However, this also comes with the drawbacks that \glss{APD} produces so much heat that it requires an active cooling system and exhibits worse timing characteristics than \glss{PMT}~\parencite{AvalanchePhotodiodeBib}. \glss{APD} are the choice of many modern \gls{PET}/\gls{CT} scanners~\parencite{Vandendriessche2019}.
                     
-%                    \item A further development on \glss{APD} gave \glss{SiPM} and \glss{SSPM}. These devices combine the benefits of both \glss{PMT} and \glss{APD} in that they have a high efficiency, small size, are safe to be used in a magnetic field and have good timing characteristic. \glss{SiPM} and \glss{SSPM} are becoming the new default photodetectors in \gls{GE} scanners~\parencite{SiPmBib}.
-%                \end{itemize}
+                    \item A further development on \glss{APD} gave \glss{SiPM} and \glss{SSPM}. These devices combine the benefits of both \glss{PMT} and \glss{APD} in that they have a high efficiency, small size, are safe to be used in a magnetic field and have good timing characteristic. \glss{SiPM} and \glss{SSPM} are becoming the new default photodetectors in \gls{GE} scanners~\parencite{SiPmBib}.
+                \end{itemize}
             
             \subsubsection{Coincidence Processing} \label{sec:coincidence_processing}
                 % write stuff about coincidence processing , give some info on TOF (or separate section for it, i don't know)
@@ -281,7 +282,7 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_tof.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the concept of \gls{TOF}. The top middle of this figure shows the position where a hypothetical annihilation has occurred, plus the $\gamma$-photos from this annihilation which have then gone on to be detected by the scanner. The bottom left of this figure shows a traditional \gls{nTOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} is constant. The bottom right of this figure shows a \gls{TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} can be approximated with a Gaussian based upon the difference in arrival time of both photons.} \label{fig:time_of_flight_pet_tof}
+                    \caption{Graphical representation of the concept of \gls{TOF}. The top middle of this figure shows the position where a hypothetical annihilation has occurred, plus the $\gamma$-photos from this annihilation which have then gone on to be detected by the scanner. The bottom left of this figure shows a traditional \gls{Non-TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} is constant. The bottom right of this figure shows a \gls{TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} can be approximated with a Gaussian based upon the difference in arrival time of both photons.} \label{fig:time_of_flight_pet_tof}
                 \end{figure}
                 
                 \begin{figure}
@@ -290,7 +291,7 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_non_tof_example.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some \gls{nAC} \gls{nTOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_non_tof_example}
+                    \caption{Example of some \gls{NAC} \gls{Non-TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_non_tof_example}
                 \end{figure}
                 
                 \begin{figure}
@@ -299,7 +300,7 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_tof_example.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some \gls{nAC} \gls{TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_tof_example}
+                    \caption{Example of some \gls{NAC} \gls{TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_tof_example}
                 \end{figure}
                 
                 As stated above in~\Fref{sec:coincidence_processing}, in order for the coincidence window based method to determine which specific detected photons represent \glss{LOR}, the scanner must be able to asses the difference in arrival time of each photon. %Because of this the scanner must record the absolute time at which it detects each incident photon. %KT delete previous sentence. it isn't really  necessary and essentially irrelevant anyway %ACW done
@@ -311,10 +312,11 @@
                 
                 %KT cut next paragraph. too much detail for you
                 %ACW depressingly done
-                %The timing resolution of the scanner is mainly dictated by the timing properties of both the scintillation crystal and the photodetector used. For the scintillation crystal, almost ubiquitously \gls{LSO} and \gls{LYSO} are used in modern \gls{PET} scanners which utilise \gls{TOF}. This is because they are the only scintillation crystals where they stop the photon and return to their base state post luminescence in a suitable time such that the time of arrival can be determined to any useful degree~\parencite{TOFLSOBib}. For the photodetector, though \glss{PMT} possessed suitable timing properties to be used for \gls{TOF} now \glss{SiPM} and \glss{SSPM} are surpassing \glss{PMT} both in their timing properties and because they are not affected by magnetic fields and such can be used in both \gls{PET}/\gls{CT} as well as \gls{PET}/\gls{MR} scanners.
+                %ACW undone
+                The timing resolution of the scanner is mainly dictated by the timing properties of both the scintillation crystal and the photodetector used. For the scintillation crystal, almost ubiquitously \gls{LSO} and \gls{LYSO} are used in modern \gls{PET} scanners which utilise \gls{TOF}. This is because they are the only scintillation crystals where they stop the photon and return to their base state post luminescence in a suitable time such that the time of arrival can be determined to any useful degree~\parencite{TOFLSOBib}. For the photodetector, though \glss{PMT} possessed suitable timing properties to be used for \gls{TOF} now \glss{SiPM} and \glss{SSPM} are surpassing \glss{PMT} both in their timing properties and because they are not affected by magnetic fields and such can be used in both \gls{PET}/\gls{CT} as well as \gls{PET}/\gls{MR} scanners.
                 
-                Currently, \gls{TOF} is a focus for research because of the drastic improvements that it can have on the \gls{SNR}~\parencite{Lecoq2017, Cates2018}. %\gls{TOF} has such an impact on the resolution and reconstruction of \gls{PET} that it is used as a pseudo attenuation correction technique outside of the \gls{FOV} of the \gls{MR} in some \gls{PET}/\gls{MR} systems, such as the \gls{GE} Signa~\parencite{Pan2019}. %KT I'd cut the previous sentence. This is  far more complicated than this (needs MLAA etc) %ACW done
-                An example of some \gls{nAC} \gls{nTOF} and \gls{nAC} \gls{TOF} data can be seen in~\Fref{fig:time_of_flight_pet_non_tof_example} and~\Fref{fig:time_of_flight_pet_tof_example} respectively, notice the difference in distribution of counts in the centre of the thorax and lungs.
+                Currently, \gls{TOF} is a focus for research because of the drastic improvements that it can have on the \gls{SNR}~\parencite{Lecoq2017, Cates2018}. \gls{TOF} has such an impact on the resolution and reconstruction of \gls{PET} that it is used as a pseudo attenuation correction technique outside of the \gls{FOV} of the \gls{MR} in some \gls{PET}/\gls{MR} systems, such as the \gls{GE} Signa~\parencite{Pan2019}. %KT I'd cut the previous sentence. This is  far more complicated than this (needs MLAA etc) %ACW done %ACW undone
+                An example of some \gls{NAC} \gls{Non-TOF} and \gls{NAC} \gls{TOF} data can be seen in~\Fref{fig:time_of_flight_pet_non_tof_example} and~\Fref{fig:time_of_flight_pet_tof_example} respectively, notice the difference in distribution of counts in the centre of the thorax and lungs.
                 
                 The current (as of $2021$) \gls{PET}/\gls{CT} scanner with the highest \gls{TOF} resolution which is commercially available is the Siemens Vision with an approximate \gls{FWHM} of \SI{210.0}{\pico\second} or \SI{31.5}{\milli\metre}~\parencite{VanSluis2019}. The \gls{PET}/\gls{MR} scanner with the highest \gls{TOF} resolution which is commercially available is the \gls{GE} Signa with an approximate \gls{FWHM} that is sub \SI{400.0}{\pico\second} or \SI{60.0}{\milli\metre}~\parencite{SIGNA, Hsu2017StudiesSystem, Caribe2019NEMAIsotopes}. %KT again factor 2in the mm %ACW done
             
@@ -401,7 +403,7 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_nAC_example.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of simulated \gls{nAC} \gls{TOF} data, with motion, with no noise randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_nAC_tof_example}
+                    \caption{Example of simulated \gls{NAC} \gls{TOF} data, with motion, with no noise randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_nAC_tof_example}
                 \end{figure}
                 
                 \begin{figure} %KT if you're bored (!),I'd put the nAC and AC figures next to eachother
@@ -410,10 +412,10 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_ac_example.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of simulated \gls{AC} \gls{nTOF} data, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_ac_tof_example}
+                    \caption{Example of simulated \gls{AC} \gls{Non-TOF} data, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_ac_tof_example}
                 \end{figure}
                 
-                As discussed previously in~\Fref{sec:attenuation} attenuation represents the loss of coincidences by photon interactions in matter. Attenuation is an issue in \gls{PET} as it causes the loss of signal and a degradation in image quality, this is the opposite for \gls{CT} where the modality itself relies on attenuation in order to differentiate anatomical structure, an example of a \gls{Mu-Map} can be seen in~\Fref{fig:combined_pet_ct_mu_map_example}. An example of some \gls{nAC} \gls{TOF} and \gls{AC} \gls{TOF} data can be seen in~\Fref{fig:combined_pet_ct_nAC_tof_example} and~\Fref{fig:combined_pet_ct_ac_tof_example} respectively. In order to find reasonable quantitative results the attenuation of the patient must be taken into account in \gls{PET}. %Both \gls{PET} and \gls{CT} follow the Beer-Lambert law. %KT cut last sentence.not  relevant here %ACW done
+                As discussed previously in~\Fref{sec:attenuation} attenuation represents the loss of coincidences by photon interactions in matter. Attenuation is an issue in \gls{PET} as it causes the loss of signal and a degradation in image quality, this is the opposite for \gls{CT} where the modality itself relies on attenuation in order to differentiate anatomical structure, an example of a \gls{Mu-Map} can be seen in~\Fref{fig:combined_pet_ct_mu_map_example}. An example of some \gls{NAC} \gls{TOF} and \gls{AC} \gls{TOF} data can be seen in~\Fref{fig:combined_pet_ct_nAC_tof_example} and~\Fref{fig:combined_pet_ct_ac_tof_example} respectively. In order to find reasonable quantitative results the attenuation of the patient must be taken into account in \gls{PET}. %Both \gls{PET} and \gls{CT} follow the Beer-Lambert law. %KT cut last sentence.not  relevant here %ACW done
                 
                 Methods to acquire \gls{Mu-Map}, for \gls{AC} include; to take a transmission scan of a known point source rotated around the body of the patient prior to the injection of the radiotracer. This allows for the estimation of the attenuation for each angle~\parencite{TransmissionatnBib}. Another method involves the use of the known attenuation from the \gls{CT} scan.
                 
@@ -442,7 +444,7 @@
             For instance, in reconstruction an optimisation could be to find the image that when the forward operator is applied to it the result best matches the measured data. Another example of an optimisation would be to find the motion parameters that when applied to a given image most closely warp that image to match another image. Optimisation is also used in fields such as deep learning to train \glss{NN}, here the optimisation is used to find parameters for a model that maps one set of values to another.%, this will be discussed later in~\Fref{sec:machine_learning_for_pet}.
             
             % CHECK IF PAGE BOUNDARY LOOPS
-            \newpage
+            % \newpage
             
             In order to perform a basic optimisation four components are required; most importantly an objective function (which returns the goodness of the current estimate) and a method to optimise the estimate based on this function are paramount. Additionally, an initial estimate (the closer this is to the ideal estimate then the less computation time is required overall) and a method to determine when optimisation should cease (for instance when the objective function exceeds a threshold or the number of iterations becomes so large) are also necessary. These will be discussed in the following sections in~\Fref{sec:objective_function} and~\Fref{sec:optimiser} respectively.
         
@@ -452,7 +454,7 @@
                 An example of an objective function would be \gls{MAE}. For a vector of some values, \gls{MAE} subtracts the estimated value from the true value, finds the absolute value of this and sums together this value for all values in the vector. The absolute value is taken because the error should be the distance to the true value regardless of if the estimated value is greater or less than the true value. If the estimated values approach the true values then the value of the \gls{MAE} will approach zero. If \gls{MSE} is used then the square of the error is taken rather than the absolute value, taking the square causes the error to increase quadratically as it becomes larger. %KT exponentially? no,quadratically %ACW done
                 This can be advantageous as it penalises large errors more than smaller ones, which can lead to a better result in some circumstances. Additionally, the square is differentiable.
                 
-                More complex objective functions include; \gls{RMSE}, here the square root of \gls{MSE} is taken which scales the value of the error back to the units of the original estimate. Median absolute error is similar to \gls{MAE} however rather than taking the mean of all error values the median is taken instead, this would gave an objective function which is less sensitive to noise or more robust as outliers are diminished or ignored by the median. An objective function which differs more significantly would be \gls{PCC}, here the correlation of the values in the estimate are compared to the measured data, thus if \gls{PCC} was used in an optimisation then it is not guaranteed that the estimate will have the same scale as the measured data but its shape should be similar. \gls{PCC} can be used on very noisy data as it is less sensitive to this noise. \gls{MAE}, \gls{MSE} \gls{RMSE} and \gls{PCC} are usually used in regression-like problems where a line is fit though a data set.
+                More complex objective functions include; \gls{RMSE}, here the square root of \gls{MSE} is taken which scales the value of the error back to the units of the original estimate. Median absolute error is similar to \gls{MAE} however rather than taking the mean of all error values the median is taken instead, this would gave an objective function which is less sensitive to noise or more robust as outliers are diminished or ignored by the median. An objective function which differs more significantly would be \gls{CC}, here the correlation of the values in the estimate are compared to the measured data, thus if \gls{CC} was used in an optimisation then it is not guaranteed that the estimate will have the same scale as the measured data but its shape should be similar. \gls{CC} can be used on very noisy data as it is less sensitive to this noise. \gls{MAE}, \gls{MSE} \gls{RMSE} and \gls{CC} are usually used in regression-like problems where a line is fit though a data set.
                 
                 Another example of an objective function would be likelihood. This function for any given sample of data computes the goodness of fit to a statistical model. Strictly speaking, the likelihood is related to the inverse of the goodness of fit. 
                 The likelihood function describes a planes whose peak, if there is one distinct peak, %KT???
@@ -499,44 +501,45 @@
             
             The data output from a \gls{PET} scan are usually expressed in \gls{KBq/mL}, however for pseudo quantitative analysis the values are usually normalised to \gls{SUV} by dividing the activity by, for instance, the mass of the patient and the injected activity. %KT previous sentence belongs in image recon section, not where you discuss the measured data %ACW done
         
-%        \subsection{Analytic Image Reconstruction} \label{sec:analytic_image_reconstruction}
+        \subsection{Analytic Image Reconstruction} \label{sec:analytic_image_reconstruction}
             % mention briefely FBP ?
             %KT no! cut. I didn't read it
             %ACW done
-%            \begin{figure}
-%                \centering
+            %ACW undone
+            \begin{figure}
+                \centering
                     
-%                \includegraphics[width=1.0\linewidth]{figures/background_radon_transform.png}
+                \includegraphics[width=1.0\linewidth]{figures/background_radon_transform.png}
                     
-%                \captionsetup{singlelinecheck=false, justification=raggedright}
-%                \caption{Graphical representation of the Radon transform for one angle $\theta$. The Radon transform computes projections of some data along specified directions. Here, this figure shows the computation of a set of line integrals for the function $f(x, y)$, usually from multiple sources of parallel beams. To form a full image the Radon transform rotates the source around the centre of the image. This figure specifically shows projections for a simple \gls{2D} image along horizontal and vertical components $x$ and $y$.} \label{fig:analytic_image_reconstruction_radon_transform}
-%            \end{figure}
+                \captionsetup{singlelinecheck=false, justification=raggedright}
+                \caption{Graphical representation of the Radon transform for one angle $\theta$. The Radon transform computes projections of some data along specified directions. Here, this figure shows the computation of a set of line integrals for the function $f(x, y)$, usually from multiple sources of parallel beams. To form a full image the Radon transform rotates the source around the centre of the image. This figure specifically shows projections for a simple \gls{2D} image along horizontal and vertical components $x$ and $y$.} \label{fig:analytic_image_reconstruction_radon_transform}
+            \end{figure}
             
-%            \begin{figure}
-%                \centering
+            \begin{figure}
+                \centering
                 
-%                \includegraphics[width=1.0\linewidth]{figures/background_bp_example.png}
+                \includegraphics[width=1.0\linewidth]{figures/background_bp_example.png}
                 
-%                \captionsetup{singlelinecheck=false, justification=raggedright}
-%                \caption{Example of a simulated \glss{AC} \gls{nTOF} \gls{BP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
-%                \label{fig:analytic_image_reconstruction_bp_example}
-%            \end{figure}
+                \captionsetup{singlelinecheck=false, justification=raggedright}
+                \caption{Example of a simulated \glss{AC} \gls{Non-TOF} \gls{BP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \label{fig:analytic_image_reconstruction_bp_example}
+            \end{figure}
             
-%            \begin{figure}
-%                \centering
+            \begin{figure}
+                \centering
                 
-%                \includegraphics[width=1.0\linewidth]{figures/background_fbp_example.png}
+                \includegraphics[width=1.0\linewidth]{figures/background_fbp_example.png}
                 
-%                \captionsetup{singlelinecheck=false, justification=raggedright}
-%                \caption{Example of a simulated \glss{AC} \gls{nTOF} \gls{FBP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
-%                \label{fig:analytic_image_reconstruction_fbp_example}
-%            \end{figure}
+                \captionsetup{singlelinecheck=false, justification=raggedright}
+                \caption{Example of a simulated \glss{AC} \gls{Non-TOF} \gls{FBP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \label{fig:analytic_image_reconstruction_fbp_example}
+            \end{figure}
             
-%            An analytic solution is one which offers a direct mathematical method through which one thing can be transformed to another. All analytical solutions can have a proof. An analytical solution for \gls{PET} reconstruction is \gls{BP}, in \gls{2D} \gls{BP} is the inverse Radon transform. This can be seen in~\Fref{fig:analytic_image_reconstruction_radon_transform}. To apply the inverse Radon transform to a \gls{2D} sinogram; first the rows of the sinogram, corresponding to $\SI{0}{^{\circ}}$ through $\SI{180}{^{\circ}}$, are taken individually and have the Fourier transform applied to them. Then the result of this is reshaped to polar coordinates so that each row is the diameter of a circle and a \gls{2D} Fourier transform is applied giving the final output image. The Fourier transform decomposes a function into its constituent frequencies. The \gls{2D} Fourier transform of a function computed along a line is equivalent to the 1D Fourier transform of the Radon transform along that line. This is called projection slice theorem. 
+            An analytic solution is one which offers a direct mathematical method through which one thing can be transformed to another. All analytical solutions can have a proof. An analytical solution for \gls{PET} reconstruction is \gls{BP}, in \gls{2D} \gls{BP} is the inverse Radon transform. This can be seen in~\Fref{fig:analytic_image_reconstruction_radon_transform}. To apply the inverse Radon transform to a \gls{2D} sinogram; first the rows of the sinogram, corresponding to $\SI{0}{^{\circ}}$ through $\SI{180}{^{\circ}}$, are taken individually and have the Fourier transform applied to them. Then the result of this is reshaped to polar coordinates so that each row is the diameter of a circle and a \gls{2D} Fourier transform is applied giving the final output image. The Fourier transform decomposes a function into its constituent frequencies. The \gls{2D} Fourier transform of a function computed along a line is equivalent to the 1D Fourier transform of the Radon transform along that line. This is called projection slice theorem. 
             
-%            \gls{FBP} was proposed as a solution to some of the issues apparent in \gls{BP}, like the fact that \gls{BP} suffers from low frequency blurring. In \gls{FBP} a high pass ramp filter is applied to the sinogram before it is Fourier transformed, thus removing some low frequency information or blurring. A low pass ramp filter can also be applied at the same time which removes some high frequency information or noise, this then would be a band pass filter. An example of a \gls{BP} and \gls{FBP} reconstruction can be seen in~\Fref{fig:analytic_image_reconstruction_bp_example} and~\Fref{fig:analytic_image_reconstruction_fbp_example}. Because of its speed and good quantitative results \gls{FBP} was the gold standard of \gls{PET} \gls{IR}, however because of the issues mentions above it has now almost entirely been replaced by iterative reconstruction methods. \gls{FBP} is now almost solely used in longitudinal studies which started before the use of iterative reconstruction methods became prevalent~\parencite{FBPReviewBib, PETCTReviewBib}.
+            \gls{FBP} was proposed as a solution to some of the issues apparent in \gls{BP}, like the fact that \gls{BP} suffers from low frequency blurring. In \gls{FBP} a high pass ramp filter is applied to the sinogram before it is Fourier transformed, thus removing some low frequency information or blurring. A low pass ramp filter can also be applied at the same time which removes some high frequency information or noise, this then would be a band pass filter. An example of a \gls{BP} and \gls{FBP} reconstruction can be seen in~\Fref{fig:analytic_image_reconstruction_bp_example} and~\Fref{fig:analytic_image_reconstruction_fbp_example}. Because of its speed and good quantitative results \gls{FBP} was the gold standard of \gls{PET} \gls{IR}, however because of the issues mentions above it has now almost entirely been replaced by iterative reconstruction methods. \gls{FBP} is now almost solely used in longitudinal studies which started before the use of iterative reconstruction methods became prevalent~\parencite{FBPReviewBib, Tong2010_review}.
             
-%            \gls{BP} and \gls{FBP} reconstruct a low quality image but are computationally fast. \gls{BP} will usually result in there being numerous streak like artefacts in the output image, the artefacts are exacerbated as noise increases. Artefacts can be caused because neither \gls{BP} nor \gls{FBP} account for the stochastic nature of the acquisition process, neither do they account for other factors such as positron range as discussed in~\Fref{sec:attenuation}.
+            \gls{BP} and \gls{FBP} reconstruct a low quality image but are computationally fast. \gls{BP} will usually result in there being numerous streak like artefacts in the output image, the artefacts are exacerbated as noise increases. Artefacts can be caused because neither \gls{BP} nor \gls{FBP} account for the stochastic nature of the acquisition process, neither do they account for other factors such as positron range as discussed in~\Fref{sec:attenuation}.
             
             
         \subsection{Iterative Image Reconstruction} \label{sec:iterative_image_reconstruction}
@@ -546,7 +549,7 @@
                 \includegraphics[width=1.0\linewidth]{figures/background_osem_example.png}
                 
                 \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{nTOF} \gls{OSEM} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
                 \label{fig:iterative_image_reconstruction_osem_example}
             \end{figure}
             
@@ -577,7 +580,7 @@
                 \includegraphics[width=1.0\linewidth]{figures/background_motion_artefact_example.png}
                 
                 \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{nTOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
+                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
                 \label{fig:respiratory_motion_artefacts_motion_artefact}
             \end{figure}
             
@@ -587,7 +590,7 @@
                 \includegraphics[width=1.0\linewidth]{figures/background_single_mu-map_ac_example.png}
                 
                 \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated single \gls{Mu-Map} \gls{AC} \gls{nTOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
+                \caption{Example of a simulated single \gls{Mu-Map} \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
                 \label{fig:respiratory_motion_artefacts_single_mu-map_ac}
             \end{figure}
             
@@ -612,7 +615,7 @@
             \end{itemize}
     
     \longsection{Motion Correction for PET}{sec:motion_correction_for_pet}
-        This section of the thesis concerns all things \gls{MC} (specifically when applied to \gls{PET}). The first subsection introduces the concept of \gls{IR}, initially highlighting its similarity to \gls{PET} reconstruction (in the sense that they are both optimisation problems) before moving on to discussing the classification of motion types and how they can be corrected. The first kinds of deformation, briefly mentioned, are \gls{RD} and \gls{AD} then \glss{nRD} are introduced and classic approaches to alleviating them are highlighted, including parametric and nonparametric registration and methods of regularising them are touched on.
+        This section of the thesis concerns all things \gls{MC} (specifically when applied to \gls{PET}). The first subsection introduces the concept of \gls{IR}, initially highlighting its similarity to \gls{PET} reconstruction (in the sense that they are both optimisation problems) before moving on to discussing the classification of motion types and how they can be corrected. The first kinds of deformation, briefly mentioned, are \gls{RD} and \gls{AD} then \glss{Non-RD} are introduced and classic approaches to alleviating them are highlighted, including parametric and nonparametric registration and methods of regularising them are touched on.
         
         The second subsection moves on to introduce the concept of respiratory gating, including both amplitude and phase gating before the third subsection which explains how the \glss{SS}, which are used in respiratory gating, are acquired. Firstly methods incorporating external devices to extract \glss{SS} are highlighted, including using the \gls{RPM}, then moving onto \gls{DD} methods. \gls{PCA} is explained as a dimensionality reduction technique and its use for acquiring \glss{SS} directly from \gls{PET} acquisition data is provided.
         
@@ -621,7 +624,7 @@
         The final subsection is related to the actual application of \gls{MC}, for instance, how and where it is applied. This includes highlighting the benefits of both a post reconstruction and iterative with reconstruction schema.
     
         \subsection{Image Registration} \label{sec:image_registration}
-            \gls{IR} is an optimisation problem which attempts to warp one image (called the dynamic image) to another image (called the static image). The way that one image is warped to another image is through the use of a transformation (or \gls{DVF}). There are  different kinds of deformations including \glss{RD} and \glss{nRD} which will be discussed in the following sections in~\Fref{sec:rigid_deformation} and~\Fref{sec:non_rigid_deformation} respectively. These deformations directly deform or warp the dynamic image so that it best matches the static image. %If there are multiple dynamic images then the optimisation will produce a transformation for each image.
+            \gls{IR} is an optimisation problem which attempts to warp one image (called the dynamic image) to another image (called the static image). The way that one image is warped to another image is through the use of a transformation (or \gls{DVF}). There are  different kinds of deformations including \glss{RD} and \glss{Non-RD} which will be discussed in the following sections in~\Fref{sec:rigid_deformation} and~\Fref{sec:non_rigid_deformation} respectively. These deformations directly deform or warp the dynamic image so that it best matches the static image. %If there are multiple dynamic images then the optimisation will produce a transformation for each image.
             The images used for \gls{IR} do not necessarily need to be from the same modality and as such \gls{CT} data can be registered to \gls{PET} data or vice versa. A common use for \gls{IR} in medical imaging is to aid in the process of \gls{MC}.
             
             As discussed in~\Fref{sec:optimisation_concepts} an optimisation requires an objective function. In the case of \gls{IR} the most common objective functions are \gls{MSE}, \gls{CC} and \gls{MI}. \gls{MSE} is discussed in~\Fref{sec:objective_function} but simply assumes that once the dynamic image has been deformed to the static then the images should be identical, thus \gls{MSE} is best used when the only difference between the two images is from, for instance, motion and not from a change in modality. \gls{CC} and \gls{MI} are less reliant on the specific intensity values of an image and instead look for relationships between intensities, thus they are more suitable to registering between different modalities than \gls{MSE}~\parencite{Hill2001, Oliveira2014}.
@@ -649,7 +652,7 @@
                 
                 A \gls{RD} could be a rotation or a translation of the entire contents of an image where the same rotation or translation is applied at every point. A \gls{RD} is one where the euclidean distance between every pair of points in the image is consistent before and after the deformation is applied, this can be seen in~\Fref{fig:rigid_transformations_rd}. \glss{RD} are a subset of a type of deformation called an \gls{AD}. A \gls{3D} \gls{RD} has six degrees of freedom, being rotation and translation in every axis, whereas a \gls{3D} \gls{AD} has $12$ degrees of freedom, rotation, translation, scaling and sheering in every axis. An \gls{AD} does not guarantee that the euclidean distance between pairs of points are maintained, this can be seen in~\Fref{fig:rigid_transformations_ad}.
                 
-                \glss{RD} are often used in medical imaging where the anatomy which is being registered is not expected to undergo individual internal motion, for instance \glss{RD} are often used in the registration of patient head motion~\parencite{Hill2001}. \glss{AD} are not often used in medical imaging as anatomy does not usually deform in ways that \glss{AD} can capture but \glss{RD} cannot, although an \gls{AD} can be used as an initial estimate for fitting a more complex \gls{nRD}.
+                \glss{RD} are often used in medical imaging where the anatomy which is being registered is not expected to undergo individual internal motion, for instance \glss{RD} are often used in the registration of patient head motion~\parencite{Hill2001}. \glss{AD} are not often used in medical imaging as anatomy does not usually deform in ways that \glss{AD} can capture but \glss{RD} cannot, although an \gls{AD} can be used as an initial estimate for fitting a more complex \gls{Non-RD}.
                 
                 The output from a \gls{RD} or \gls{AD} is usually the values from the six or $12$ value transformation matrix, respectively, and as such they do not take up much computational memory or storage.
                 
@@ -660,15 +663,15 @@
                     \includegraphics[width=1.0\linewidth]{figures/background_nRD.png}
                     
                     \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a \gls{nRD}. On the left a grid can be seen, this grid undergoes a \gls{nRD} to the grid on the right.} \label{fig:non_rigid_deformation_nRD}
+                    \caption{Graphical representation of a \gls{Non-RD}. On the left a grid can be seen, this grid undergoes a \gls{Non-RD} to the grid on the right.} \label{fig:non_rigid_deformation_nRD}
                 \end{figure}
                 
-                A \gls{nRD} is one where the euclidean distance between pairs of points is not maintained, this can be seen in~\Fref{fig:non_rigid_deformation_nRD}. Notice that the euclidean distance between where the lines of the grids intersects changes between the grid on the left and the grid on the right. %For example the motion of a fluid is a \gls{nRD} as pairs of points can move past each other by different amounts.
-                \glss{nRD} are commonly seen in medical imaging in \gls{RM} as the diaphragm and lungs experience sliding motion and displace different parts of the patient's anatomy by different amounts over the respiratory cycle. A \gls{nRD} is often represented by a \gls{DVF} which is, in the simplest case, a volume (the same size, with the same number of elements, as the data) where each 'voxel' contains a vector that points either from the voxel in the dynamic image to the same voxel (anatomically, not literally) in the static image or vice versa.
+                A \gls{Non-RD} is one where the euclidean distance between pairs of points is not maintained, this can be seen in~\Fref{fig:non_rigid_deformation_nRD}. Notice that the euclidean distance between where the lines of the grids intersects changes between the grid on the left and the grid on the right. %For example the motion of a fluid is a \gls{Non-RD} as pairs of points can move past each other by different amounts.
+                \glss{Non-RD} are commonly seen in medical imaging in \gls{RM} as the diaphragm and lungs experience sliding motion and displace different parts of the patient's anatomy by different amounts over the respiratory cycle. A \gls{Non-RD} is often represented by a \gls{DVF} which is, in the simplest case, a volume (the same size, with the same number of elements, as the data) where each 'voxel' contains a vector that points either from the voxel in the dynamic image to the same voxel (anatomically, not literally) in the static image or vice versa.
                 
                 However, for reasons of computational efficiency (and usually to regularise the \gls{IR} optimisation, somewhat) the \gls{DVF} can be parameterised. One parameterisation could be to use \glss{CP} on a \gls{CPG} which are interpolated using, for instance, linear or B-spline interpolation to find the vector to be applied at each voxel~\parencite{Bardinet1996, Rueckertetal.1999, Mattes2003, JacobsonFesslerMotionCorrectionBib}. There are also \gls{IR} methods which forego parameterisation and instead directly fit the \gls{DVF}, for instance Daemon registration (also known as nonparametric registration algorithms)~\parencite{Vercauteren2009DiffeomorphicRegistration.}.
                 
-                Regularisation terms are often employed for \glss{nRD} \gls{IR} as otherwise with a high resolution \gls{CPG} it is possible for the optimisation to fit the noise present in the data rather than fitting the motion, as discussed in~\Fref{sec:optimisation_concepts}. One common form of regularisation is a smoothness penalty, for instance \gls{TPS}, \gls{BE} or \gls{LE}. Here, simply, the term is calculated as the integral of the square of the second derivative of the \gls{DVF}. This term is multiplied by some value $\epsilon$ representing the weighting of this penalty term and then the scaled term is summed to the current value of the objective function. This regularisation term attempts to enforce that adjacent \glss{CP} should not rapidly change, with regards to one another, as this type of motion is unlikely physically~\parencite{Duchon1977SplinesSpaces}. In the case of nonparametric registration, a Gaussian smoothing of the input data is sometimes used for regularisation~\parencite{Vercauteren2009DiffeomorphicRegistration.}.
+                Regularisation terms are often employed for \glss{Non-RD} \gls{IR} as otherwise with a high resolution \gls{CPG} it is possible for the optimisation to fit the noise present in the data rather than fitting the motion, as discussed in~\Fref{sec:optimisation_concepts}. One common form of regularisation is a smoothness penalty, for instance \gls{TPS}, \gls{BE} or \gls{LE}. Here, simply, the term is calculated as the integral of the square of the second derivative of the \gls{DVF}. This term is multiplied by some value $\epsilon$ representing the weighting of this penalty term and then the scaled term is summed to the current value of the objective function. This regularisation term attempts to enforce that adjacent \glss{CP} should not rapidly change, with regards to one another, as this type of motion is unlikely physically~\parencite{Duchon1977SplinesSpaces}. In the case of nonparametric registration, a Gaussian smoothing of the input data is sometimes used for regularisation~\parencite{Vercauteren2009DiffeomorphicRegistration.}.
         
         \subsection{Respiratory Gating} \label{sec:respiratory_gating}
             % brief intro

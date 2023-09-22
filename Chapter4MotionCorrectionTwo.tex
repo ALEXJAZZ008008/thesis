@@ -11,137 +11,87 @@
     \longsection{Introduction}{sec:subsequent_motion_correction_using_advanced_reconstruction_and_gating_methods_with_more_challenging_data_introduction}
         
     
-    
     \longsection{PET/CT Motion Correction Exploiting Motion Models Fit on Coarsely Gated Data Applied to Finely Gated Data}{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}
 
 
         \subsection{Introduction} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_introduction}
-            Motion correction is imperative to the reduction of blurring and artefacts inherent in PET; due to the relatively long acquisition time, and the temporal difference in the attenuation map acquisition. Registration literature contains many examples of spatial regularisers, however there are few temporal regularisers. Motion models can act as such a temporal regulariser, as well as allowing for the interpolation of unseen motion correction results. In our previous work, we applied a motion modelling approach to high TOF resolution non-attenuation corrected data; where the data was corrected to the space of the attenuation map. However, this approach was challenging, especially when low contrast lung tumours are present. This work seeks to extend previous work, by incorporating an approach suggested by Y. Lu et al. (JNM 2018), to perform an initial MLACF reconstruction for the motion estimation. In this work, we combine these two approaches, with several improvements, including; $\mu$-map alignment, as well as, fitting the motion model on low noise low temporal/gate resolution data, and applying it to high noise high temporal/gate resolution data. To test this, %$4$-Dimensional Extended Cardiac Torso
-            XCAT volumes are constructed, and TOF data simulated. Evaluation compares the results of the proposed method against, where the motion model was fit on data gated more finely, where the motion model was fit on noiseless data, and finally non-motion corrected examples. Results indicate that the incorporation of MLACF, and fitting of the motion model on low noise low temporal/gate resolution data, improves contrast and quantification, while allowing for a relatively fast execution time.
+            Motion correction is imperative to the reduction of blurring and artefacts inherent in \gls{PET}; due to the relatively long acquisition time, and the temporal difference in the attenuation map acquisition. Registration literature contains many examples of spatial regularisers, however there are few temporal regularisers. Motion models can act as such a temporal regulariser, as well as allowing for the interpolation of unseen motion correction results. In our previous work, we applied a motion modelling approach to high \gls{TOF} resolution \gls{NAC} data; where the data was corrected to the space of the attenuation map. However, this approach was challenging, especially when low contrast lung tumours are present. This work seeks to extend previous work, by incorporating an approach suggested by Y. Lu et al. (JNM 2018), to perform an initial \gls{MLACF} reconstruction for the motion estimation. In this work, we combine these two approaches, with several improvements, including; \gls{Mu-Map} alignment, as well as, fitting the \gls{MM} on low noise low temporal/gate resolution data, and applying it to high noise high temporal/gate resolution data. To test this, \gls{XCAT} volumes are constructed, and \gls{TOF} data simulated. Evaluation compares the results of the proposed method against, where the \gls{MM} was fit on data gated more finely, where the \gls{MM} was fit on noiseless data, and finally non-motion corrected examples. Results indicate that the incorporation of \gls{MLACF}, and fitting of the \gls{MM} on low noise low temporal/gate resolution data, improves contrast and quantification, while allowing for a relatively fast execution time.
             
             Motion Models parameterise \glss{DVF} in terms of a \gls{SS}. They could be considered as an addition to a standard spatially regularised \gls{MC} technique, as they impose a degree of temporal or gate-wise regularisation. In addition, they also allow obtaining \glss{DVF} for time points/gates, not used to fit the model (as long as a relevant \gls{SS} exists~\parencite{McClelland2013}). \glss{MM} have seen attention, particularly in \gls{CT}~\parencite{Li2007EnhancedModel}, but also \gls{MR}~\parencite{Manke2002RespiratoryModels, Manber2016JointCorrection}, however less so in clinical \gls{PET}/\gls{CT}.
             
-            In our previous work~\parencite{Whitehead2019ImpactPET, Whitehead2020PET/CTFields, Whitehead2021ComparisonMap}, the possibility of incorporating \glss{MM}, in a \gls{MC} framework, for \gls{nAC} \gls{TOF} \gls{PET}, where the reference was set to the position of a breath hold \gls{Mu-Map}, was investigated. %This method could be used to deform both the gates to the reference position as well as the reference position to the gates.
-            Our preliminary experiments indicated that the combination of both the \gls{MM} and \gls{TOF}, allowed for an \gls{AC} reconstruction with \gls{MC}, without introducing artefacts, while increasing resolution and quantification accuracy (for simulations with high \gls{TOF} resolution and count levels). This work seeks to extend the method further, using more realistic simulation and count levels, from existing clinical scanners. Firstly, by incorporating \gls{MLACF} % as an initialisation technique
-            , which provides volumes with greater contrast than \gls{nAC}, without introducing bias due to misalignment with a fixed \gls{Mu-Map}~\parencite{Nuyts2012ML-reconstructionFactors}. Secondly, low noise low temporal/gate resolution data is used to fit the \gls{MM}, while high noise high temporal/gate resolution data is used for the output; this potentially allows for reduced misregistration, as well as improving computation time. Thirdly, a diffeomorphic velocity field parameterised registration was used ,which provided \glss{DVF} free from folding.
+            In our previous work~\parencite{Whitehead2019ImpactPET, Whitehead2020PET/CTFields, Whitehead2021ComparisonMap}, the possibility of incorporating \glss{MM}, in a \gls{MC} framework, for \gls{NAC} \gls{TOF} \gls{PET}, where the reference was set to the position of a breath hold \gls{Mu-Map}, was investigated. This method could be used to deform both the gates to the reference position as well as the reference position to the gates. Our preliminary experiments indicated that the combination of both the \gls{MM} and \gls{TOF}, allowed for an \gls{AC} reconstruction with \gls{MC}, without introducing artefacts, while increasing resolution and quantification accuracy (for simulations with high \gls{TOF} resolution and count levels). This work seeks to extend the method further, using more realistic simulation and count levels, from existing clinical scanners. Firstly, by incorporating \gls{MLACF} as an initialisation technique, which provides volumes with greater contrast than \gls{NAC}, without introducing bias due to misalignment with a fixed \gls{Mu-Map}~\parencite{Nuyts2012ML-reconstructionFactors}. Secondly, low noise low temporal/gate resolution data is used to fit the \gls{MM}, while high noise high temporal/gate resolution data is used for the output; this potentially allows for reduced misregistration, as well as improving computation time. Thirdly, a diffeomorphic velocity field parameterised registration was used ,which provided \glss{DVF} free from folding.
             
             A method incorporating \glss{MM} for dynamic \gls{PET}/\gls{CT}, was proposed in~\parencite{Chan2018Non-RigidPET}. Additionally, a method incorporating \gls{MLACF} for \gls{PET}/\gls{CT}, was proposed in~\parencite{Lu2018RespiratoryData}. The work presented here, differentiates itself, not only by the ways mentioned above, but also by using a \gls{2D} \gls{SS} (rather than a \gls{1D} \gls{SS}). Thus allowing more general parametrisation of the motion (here in terms of both displacement and velocity). Additionally, the group-wise method, presented here, makes use of an iterative \gls{MC} algorithm, rather than relying only on a pair-wise method.
         
-        % \vspace{-0.4cm}
-        
         \subsection{Methods} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods}
             \subsubsection{XCAT Volume Generation} \label{sec:xcat_volume_generation}
-                \gls{XCAT}~\parencite{Segars2010} was used to generate $480$ volumes over a \SI{240}{\second} period, using respiratory traces, derived from \gls{2D} CINE-\gls{MR} patient data. The maximum displacement of \gls{AP} and \gls{SI} motion, was set to \SI{1.2}{\centi\metre} and \SI{2.0}{\centi\metre} respectively. Activity concentrations were derived from a static \gls{18F-FDG} patient scan. The \gls{FOV} included the base of the lungs, diaphragm, and the top of the liver, with a \SI{20}{\milli\metre} diameter spherical lesion %(smaller than the max displacement due to \gls{RM})
-                placed into the base of the right lung (within the maximum displacement due to \gls{RM} of the diaphragm).
-            
-            % \vspace{-0.5cm}
+                \gls{XCAT}~\parencite{Segars2010} was used to generate $480$ volumes over a \SI{240}{\second} period, using respiratory traces, derived from \gls{2D} CINE-\gls{MR} patient data. The maximum displacement of \gls{AP} and \gls{SI} motion, was set to \SI{1.2}{\centi\metre} and \SI{2.0}{\centi\metre} respectively. Activity concentrations were derived from a static \gls{18F-FDG} patient scan. The \gls{FOV} included the base of the lungs, diaphragm, and the top of the liver, with a \SI{20}{\milli\metre} diameter spherical lesion (smaller than the max displacement due to \gls{RM}) placed into the base of the right lung (within the maximum displacement due to \gls{RM} of the diaphragm).
             
             \subsubsection{PET Acquisition Simulation} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}
-                \gls{PET} acquisitions were simulated (and reconstructed), using \gls{STIR}~\parencite{Thielemans2012, Nikos2019} through \gls{SIRF}~\parencite{Ovtchinnikov2017}, to forward project data using the geometry of a \gls{GE} Discovery $710$. Attenuation was included using the relevant \glss{Mu-Map} generated by \gls{XCAT}. Pseudo-randoms and scatter were added.% Randoms were added by summing a scaled uniform forward projection to the simulation sinogram. Pseudo-scatter was added by summing a scaled and smoothed forward projection of the activity data at each time point to the simulation sinogram. The smoothing parameter was optimised to give scatter with a similar distribution to a GATE gate simulation. A full scatter simulation was not performed due to software limitations.
+                \gls{PET} acquisitions were simulated (and reconstructed), using \gls{STIR}~\parencite{Thielemans2012, Nikos2019} through \gls{SIRF}~\parencite{Ovtchinnikov2017}, to forward project data using the geometry of a \gls{GE} Discovery $710$. Attenuation was included using the relevant \glss{Mu-Map} generated by \gls{XCAT}. Pseudo-randoms and scatter were added. Randoms were added by summing a scaled uniform forward projection to the simulation sinogram. Pseudo-scatter was added by summing a scaled and smoothed forward projection of the activity data at each time point to the simulation sinogram. The smoothing parameter was optimised to give scatter with a similar distribution to a GATE gate simulation. A full scatter simulation was not performed due to software limitations.
                 
-                Noise was simulated, such that data matched an acquisition over \SI{240}{\second}, emulating a standard single bed position acquisition. The count rate was selected to match that of research scans%, i.e. below that of diagnostic clinical scans. This count rate was selected as a 'worst case scenario'
-                .
+                Noise was simulated, such that data matched an acquisition over \SI{240}{\second}, emulating a standard single bed position acquisition. The count rate was selected to match that of research scans, i.e. below that of diagnostic clinical scans. This count rate was selected as a 'worst case scenario'.
                 
-                A respiratory \gls{SS} was generated using \gls{PCA}~\parencite{Thielemans2011}. The value of this signal, and its gradient, was used for gating. For \gls{MM} estimation, data were initially pseudo-phase gated; the data was displacement and gradient gated into four bins, where each bin was a quadrant centred on the maximum or minimum of the displacement or gradient. %This is useful as it gives a small number of gates while allowing to fit a \gls{2D} \gls{MM} (a plane).
-                For the purpose of the \gls{MM} fitting, \gls{SS} values were determined for the post-gated data by taking an average of the \gls{SS} values in each bin.
+                A respiratory \gls{SS} was generated using \gls{PCA}~\parencite{Thielemans2011}. The value of this signal, and its gradient, was used for gating. For \gls{MM} estimation, data were initially pseudo-phase gated; the data was displacement and gradient gated into four bins, where each bin was a quadrant centred on the maximum or minimum of the displacement or gradient. This is useful as it gives a small number of gates while allowing to fit a \gls{2D} \gls{MM} (a plane). For the purpose of the \gls{MM} fitting, \gls{SS} values were determined for the post-gated data by taking an average of the \gls{SS} values in each bin.
                 
             \subsubsection{MLACF Image Reconstruction} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mlacf_image_reconstruction}
-                Data were reconstructed using \gls{MLACF}, with seven full iterations and $24$ subsets for the activity update, and nine iterations for the attenuation update~\parencite{Nuyts2012ML-reconstructionFactors}. \gls{MLACF} was initialised using one iteration of \gls{MLEM}, where the breath hold \gls{CT} was used for \gls{AC}% (the \gls{ACF} were still initialised with all ones), this gave a small improvement to results without introducing bias.
-                . Between iterations, the activity volume and \gls{ACF} sinogram were normalised (scaled to the same magnitude as an equivalent volume/sinogram filled with ones), and a small value was added to each voxel%, this was to aid with stabilising the reconstruction
-                . A quadratic prior was included in the reconstruction, to promote smoothness of the \gls{ACF} sinogram.
-            
-            % \vspace{-0.5cm}
+                Data were reconstructed using \gls{MLACF}, with seven full iterations and $24$ subsets for the activity update, and nine iterations for the attenuation update~\parencite{Nuyts2012ML-reconstructionFactors}. \gls{MLACF} was initialised using one iteration of \gls{MLEM}, where the breath hold \gls{CT} was used for \gls{AC} (the \gls{ACF} were still initialised with all ones), this gave a small improvement to results without introducing bias. Between iterations, the activity volume and \gls{ACF} sinogram were normalised (scaled to the same magnitude as an equivalent volume/sinogram filled with ones), and a small value was added to each voxel, this was to aid with stabilising the reconstruction. A quadratic prior was included in the reconstruction, to promote smoothness of the \gls{ACF} sinogram.
             
             \subsubsection{Registration} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration}
                 Before being registered, each volume underwent pre-processing, including; replication of end-slices, smoothing, and standardisation. This pre-processing was only applied to intermediate data, and was not used for the final output of the method.
                 
                 Group-wise registration was used, where after an initial pair-wise registration step, a new reference volume was resampled. Registration to the new reference volume, followed by another resample, continued for a set number of iterations. NiftyReg~\parencite{Modat2010} was used to perform registrations, using a diffeomorphic velocity field B-spline parameterisation. \gls{CPG} spacing of the B-spline coefficients, \gls{BE} regularisation term weight, and number of iterations were tuned using a grid search.
                 
-                Between each iteration, the resampled volume was registered to the position of the \gls{Mu-Map}. The \glss{DVF} for both the group-wise registration, and \gls{Mu-Map} registration were composed together to form one final \gls{DVF}.% With the diffeomorphic nature of the registration this would give a \gls{MM} which could generate \glss{DVF} to and from the gates to the \gls{Mu-Map}.
+                Between each iteration, the resampled volume was registered to the position of the \gls{Mu-Map}. The \glss{DVF} for both the group-wise registration, and \gls{Mu-Map} registration were composed together to form one final \gls{DVF}. With the diffeomorphic nature of the registration this would give a \gls{MM} which could generate \glss{DVF} to and from the gates to the \gls{Mu-Map}.
             
-            % \vspace{-0.5cm}
+            \subsubsection{Motion Model Estimation} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}
+                \glss{MM} were fit as a direct \gls{RCM} on the \glss{CPG}, from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration} and the \gls{SS} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}. A weighted \gls{LR} was used, where the weighting was taken based on the number of counts in each gate. Once a \gls{MM} was fit, new \glss{DVF} were generated for each gate, using the \gls{SS} values used to fit the \gls{MM}. \gls{MM} fitting occurred between iterations, the \glss{DVF} generated by the \gls{MM} were used to resample the new target volume at each iteration.
             
-            \subsubsection{MM Estimation} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}
-                \glss{MM} were fit as a direct \gls{RCM} on the \glss{CPG}, %from above~\Fref{sec:registration} 
-                and the \gls{SS}% from~\Fref{sec:pet_acquisition_simulation}
-                . A weighted \gls{LR} was used, where the weighting was taken based on the number of counts in each gate. Once a \gls{MM} was fit, new \glss{DVF} were generated for each gate%, using the \gls{SS} values used to fit the \gls{MM}
-                . \gls{MM} fitting occurred between iterations%, the \glss{DVF} generated by the \gls{MM} were used to resample the new target volume at each iteration
-                .
-            
-            % \vspace{-0.5cm}
-            
-            \subsubsection{MC Image Reconstruction with AC} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mc_image_reconstruction_with_ac}
+            \subsubsection{Motion Corrected Image Reconstruction with Attenuation Correction} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mc_image_reconstruction_with_ac}
                 Data were re-gated, using the value of \gls{SS}, and its gradient, to gate data into $30$ respiratory bins ($10$ displacement and $3$ gradient bins).
                 
-                Data were re-reconstructed with \gls{AC}, deforming the \glss{Mu-Map}, using the inverse of the \glss{DVF} determined using the \gls{MM}. %from~\Fref{sec:motion_model_estimation} 
-                \gls{OSEM} was used, with two full iterations and $24$ subsets (as in clinical practice)~\parencite{Hudson1994}. \gls{MC} was then applied, using \glss{DVF} determined using the \gls{MM}%from~\Fref{sec:motion_model_estimation}
-                . Volumes were post-filtered using a Gaussian smoothing, with a \gls{FWHM} of \SI{6.4}{\milli\metre} in the transverse plane, and a normal Z-filter (as in clinical practice).
-            
-            % \vspace{-0.5cm}
+                Data were re-reconstructed with \gls{AC}, deforming the \glss{Mu-Map}, using the inverse of the \glss{DVF} determined using the \gls{MM} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation} \gls{OSEM} was used, with two full iterations and $24$ subsets (as in clinical practice)~\parencite{Hudson1994}. \gls{MC} was then applied, using \glss{DVF} determined using the \gls{MM} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}. Volumes were post-filtered using a Gaussian smoothing, with a \gls{FWHM} of \SI{6.4}{\milli\metre} in the transverse plane, and a normal Z-filter (as in clinical practice).
             
             \subsubsection{Evaluation} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_evaluation}
-                In addition to the reconstructions performed %in~\Fref{sec:motion_corrected_image_reconstruction_with_ac}, 
-                above, \gls{MC} was also applied to data in the same way, %as in~\Fref{sec:registration} and~\Fref{sec:motion_model_estimation} 
-                but using high noise, high temporal/gate resolution, or noiseless data, for the \gls{MM} fitting. Furthermore, data were also reconstructed without \gls{MC}, using either the end inhalation \gls{Mu-Map}, or a sum of all \glss{Mu-Map} (to emulate an \gls{AV-CCT}). For the present evaluation, the volumes without \gls{MC} were registered to the position of the end inhalation \gls{Mu-Map}. Additionally, \glss{DVF} generated by each method were also applied to the original \gls{XCAT} volumes, for visual analysis.
+                In addition to the reconstructions performed in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mc_image_reconstruction_with_ac}, \gls{MC} was also applied to data in the same way, as in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration} and~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation} but using high noise, high temporal/gate resolution, or noiseless data, for the \gls{MM} fitting. Furthermore, data were also reconstructed without \gls{MC}, using either the end inhalation \gls{Mu-Map}, or a sum of all \glss{Mu-Map} (to emulate an \gls{AV-CCT}). For the present evaluation, the volumes without \gls{MC} were registered to the position of the end inhalation \gls{Mu-Map}. Additionally, \glss{DVF} generated by each method were also applied to the original \gls{XCAT} volumes, for visual analysis.
                 
                 Comparisons used included: A visual analysis, \gls{SSIM} to the ground truth~\parencite{Wang2009MeanMeasures}, a profile over the lesion, and \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak} (defined following \gls{EANM} guidelines~\parencite{Boellaard2015FDG2.0}).
         
-        % \vspace{-0.5cm}
-        
         \subsection{Results} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_results}
             \begin{figure}
-                % \vspace{-0.5cm}
-                
                 \centering
                 
-                % \includegraphics[width=0.93\linewidth]{figures/motion_correction_2_results_1_visual_analysis.png}
                 \includegraphics[width=1.0\linewidth]{figures/motion_correction_2_results_1_visual_analysis.png}
-                
-                % \vspace{-0.5cm}
                 
                 \captionsetup{singlelinecheck=false, justification=centering}
                 \caption{
-                % \scriptsize
-                First row contains, \gls{AC} \gls{MC} reconstructions (plus \gls{SSIM} to the ground truth), and the second row contains, the results of applying the final \gls{MM} on the original \gls{XCAT} volumes, with the ground truth \gls{XCAT} data (for both activity and attenuation), for; a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed. Colour map ranges are consistent for all images in each row.}
+                    First row contains, \gls{AC} \gls{MC} reconstructions (plus \gls{SSIM} to the ground truth), and the second row contains, the results of applying the final \gls{MM} on the original \gls{XCAT} volumes, with the ground truth \gls{XCAT} data (for both activity and attenuation), for; a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed. Colour map ranges are consistent for all images in each row.
+                }
                 
                 \label{fig:visual_analysis}
-                
-                % \vspace{-0.5cm}
             \end{figure}
             
             \begin{figure}
-                % \vspace{-0.5cm}
-                
                 \centering
                 
-                % \includegraphics[width=0.93\linewidth]{figures/motion_correction_2_results_1_profile.png}
                 \includegraphics[width=1.0\linewidth]{figures/motion_correction_2_results_1_profile.png}
-                
-                % \vspace{-0.5cm}
                 
                 \captionsetup{singlelinecheck=false, justification=centering}
                 \caption{
-                % \scriptsize
-                A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing, for; the ground truth \gls{XCAT} data, a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed.}
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing, for; the ground truth \gls{XCAT} data, a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed.
+                }
                 
                 \label{fig:profile}
-                
-                % \vspace{-0.5cm}
             \end{figure}
             
             \begin{table}
-                % \vspace{-0.5cm}
-                
                 \centering
                 
                 \captionsetup{singlelinecheck=false, justification=centering}
                 \caption{
-                % \tiny
-                Comparison of \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak}, for; the ground truth \gls{XCAT} data, a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed.}
+                    Comparison of \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak}, for; the ground truth \gls{XCAT} data, a \gls{MM} fit on four and $30$ gate binned data applied to $30$ gate binned data, a \gls{MM} fit on noiseless four and $30$ gate binned data applied to $30$ gate binned data, and ungated data \gls{AC} with a static \gls{Mu-Map} at end inhalation and all \glss{Mu-Map} summed.
+                }
                 
-                % \vspace{-0.5cm}
-                
-                % \resizebox*{0.6\linewidth}{!}
                 \resizebox*{1.0\linewidth}{!}
                 {
                     \begin{tabular}{||c|cc||}
@@ -162,8 +112,6 @@
                     \end{tabular}
                 }
                 \label{tab:suv}
-                
-                % \vspace{-0.5cm}
             \end{table}
             
             A visual comparison of the reconstructed images (see~\Fref{fig:visual_analysis}), shows that the high noise high temporal/gate resolution method performs quite poorly, most probably due to the high level of noise apparent in the volumes. Conversely, the low noise low temporal/gate resolution data method appears to be able to \gls{MC} the data without being too adversely affected by the noise level.
@@ -172,9 +120,7 @@
              
             \gls{SUV} (and \gls{SSIM}) results confirm the above (see~\Fref{tab:suv}).
         
-        % \vspace{-0.4cm}
-        
     \longsection{Discussion}{sec:subsequent_motion_correction_using_advanced_reconstruction_and_gating_methods_with_more_challenging_data_discussion}
         Results show that using a low number of gates for \gls{MM} fitting, has minimal impact at low noise, while improving \gls{MC} when there is a high level of noise in the gates. In addition, the execution time using a reduced number of gates is lower.
             
-        % In the future, work will focus on evaluating the method on patient data.
+        In the future, work will focus on evaluating the method on patient data.
