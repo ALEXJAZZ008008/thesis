@@ -1,43 +1,15 @@
 \usepackage[acronym, nomain]{glossaries}
 
-% Define "long-s" key: 
-\glsaddkey* {longs}% key 
-{\glsentrylong{\glslabel}s}% default value 
-{\glsentrylongs}% command analogous to \glsentrytext 
-{\Glsentrylongs}% command analogous to \Glsentrytext 
-{\glslongs}% command analogous to \glstext 
-{\Glslongs}% command analogous to \Glstext 
-{\GLSlongs}% command analogous to \GLStext
-
-%% Define "short-s" key: 
-\glsaddkey* {shorts}% key 
-{\glsentryshort{\glslabel}s}% default value 
-{\glsentryshorts}% command analogous to \glsentrytext 
-{\Glsentryshorts}% command analogous to \Glsentrytext 
-{\glsshorts}% command analogous to \glstext 
-{\Glsshorts}% command analogous to \Glstext 
-{\GLSshorts}% command analogous to \GLStext
-
-\DeclareRobustCommand{\glss}[1]
-{%
-  \ifglsused{#1}{\glsshorts{#1}}{\glslongs{#1} (\glsshorts{#1})\glsunset{#1}}%
-}
-
-\DeclareRobustCommand{\Glss}[1]
-{%
-  \ifglsused{#1}{\Glsshorts{#1}}{\Glslongs{#1} (\glsshorts{#1})\glsunset{#1}}%
-}
-
 \newacronym{18F-FDG}{18F-FDG}{Fluorine $18$ Fludeoxyglucose}
 \newacronym{1D}{1D}{One Dimensional}
 \newacronym{2D}{2D}{Two Dimensional}
 \newacronym{3D}{3D}{Three Dimensional}
 \newacronym{3DPC}{3DPC}{Three Dimensional Point Cloud}
-\newacronym{4D}{4D}{$4$-Dimensional}
-\newacronym{4DCT}{4DCT}{$4$-Dimensional Computed Tomography}
+\newacronym{4D}{4D}{Four Dimensional}
+\newacronym{4DCT}{4DCT}{Four Dimensional Computed Tomography}
 \newacronym{ACF}{ACF}{Attenuation Correction Factors}
-\newacronym{AC}{AC}{Attenuation Correction}
-\newacronym{AD}{AD}{Affine Deformation}
+\newacronym{AC}{AC}{Attenuation Corrected}
+% \newacronym{AD}{AD}{Affine Deformation}
 \newacronym{AE}{AE}{Autoencoder}
 \newacronym{AIF}{AIF}{Arterial Input Function}
 \newacronym{AI}{AI}{Artificial Intelligence}
@@ -47,13 +19,14 @@
 \newacronym{ATP}{ATP}{Adenosine Triphosphate}
 \newacronym{AUC}{AUC}{Area Under the Curve}
 \newacronym{AV-CCT}{AV-CCT}{Averaged CINE-Computed Tomography}
-\newacronym{BE}{BE}{Bending Energy}
+% \newacronym{BE}{BE}{Bending Energy}
 \newacronym{BFGS}{BFGS}{Broyden Fletcher Goldfarb Shanno}
 \newacronym{BGO}{BGO}{Bismuth Germanium Oxide}
 \newacronym{BP}{BP}{Back Projection}
 \newacronym{CC}{CC}{Correlation Coefficient}
 \newacronym{CCT}{CCT}{CINE-Computed Tomography}
-\newacronym{CG}{CG}{Conjugate Gradient}
+\newacronym{CF}{CF}{Clinical Features}
+% \newacronym{CG}{CG}{Conjugate Gradient}
 \newacronym{CLBP}{CLBP}{Chronic Low Back Pain}
 \newacronym{CNN}{CNN}{Convolutional Neural Network}
 \newacronym{COM}{COM}{Centre of Mass}
@@ -68,6 +41,7 @@
 \newacronym{DVF}{DVF}{Deformation Vector Field}
 \newacronym{DWB}{DWB}{Dynamic Whole Body}
 \newacronym{EANM}{EANM}{European Association of Nuclear Medicine}
+\newacronym{EC}{EC}{Event Conditional}
 \newacronym{EM}{EM}{Expectation Maximisation}
 \newacronym{FBP}{FBP}{Filtered Back Projection}
 \newacronym{FDG}{FDG}{Fluorodeoxyglucose}
@@ -78,30 +52,31 @@
 \newacronym{GD}{GD}{Gradient Descent}
 \newacronym{GE}{GE}{General Electric}
 \newacronym{GPU}{GPU}{Graphics Processing Unit}
-\newacronym{GT}{GT}{Ground Truth}
+\newacronym{Grad-CAM}{Grad-CAM}{Gradient-weighted Class Activation Mapping}
+% \newacronym{GT}{GT}{Ground Truth}
 \newacronym{HAB}{HAB}{High Affinity Binder}
-\newacronym{HC}{HC}{Healthy Control}
+% \newacronym{HC}{HC}{Healthy Control}
 \newacronym{HPLC}{HPLC}{High Performance Liquid Chromatography}
 \newacronym{HU}{HU}{Hounsfield Unit}
 \newacronym{IDIF}{IDIF}{Image Derived Input Function}
 \newacronym{IF}{IF}{Input Function}
-\newacronym{ILD}{ILD}{Image Registration}
+\newacronym{ILD}{ILD}{Interstitial Lung Disease}
 \newacronym{IPF}{IPF}{Idiopathic Pulmonary Fibrosis}
-\newacronym{IR}{IR}{Image Registration}
+% \newacronym{IR}{IR}{Image Registration}
 \newacronym{KBq/mL}{KBq/mL}{Kilo Becquerel per Millilitre}
 \newacronym{KeV}{KeV}{Kilo Electron Volt}
 \newacronym{KLD}{KLD}{Kullback Leibler Deviation}
-\newacronym{KOA}{KOA}{Knee Osteo-Arthritis}
+\newacronym{KO}{KO}{Knee Osteoarthritis}
 \newacronym{KRG}{KRG}{Kinetic Respiratory Gating}
 \newacronym{KV}{KV}{Kilo Volt}
 \newacronym{L-BFGS-B}{L-BFGS-B}{Low memory Broyden Fletcher Goldfarb Shanno Bounded}
 \newacronym{L-BFGS}{L-BFGS}{Low memory Broyden Fletcher Goldfarb Shanno}
 \newacronym{LED}{LED}{Light Emitting Diode}
-\newacronym{LE}{LE}{Linear Energy}
-\newacronym{LL}{LL}{Log Likelihood}
+% \newacronym{LE}{LE}{Linear Energy}
+% \newacronym{LL}{LL}{Log Likelihood}
 \newacronym{LM}{LM}{Lateral Medial}
 \newacronym{LOR}{LOR}{Line of Response}
-\newacronym{LR}{LR}{Linear Regression}
+% \newacronym{LR}{LR}{Linear Regression}
 \newacronym{LSO}{LSO}{Lutetium Oxyorthosilicate}
 \newacronym{LSTM}{LSTM}{Long Short Term Memory}
 \newacronym{LYSO}{LYSO}{Lutetium Yttrium Orthosilicate}
@@ -109,23 +84,23 @@
 \newacronym{MAD}{MAD}{Median Absolute Difference}
 \newacronym{MAE}{MAE}{Mean Absolute Error}
 \newacronym{MAPE}{MAPE}{Mean Absolute Percentage Error}
-\newacronym{MBF}{MBF}{Myocardial Blood Flow}
+% \newacronym{MBF}{MBF}{Myocardial Blood Flow}
 \newacronym{MB}{MB}{Memory Bank}
 \newacronym{MCIR}{MCIR}{Motion Compensated Image Reconstruction}
-\newacronym{MCI}{MCI}{Motion Compensated Image}
+% \newacronym{MCI}{MCI}{Motion Compensated Image}
 \newacronym{mCi}{mCi}{Millicurie}
-\newacronym{MC}{MC}{Motion Correction}
+% \newacronym{MC}{MC}{Motion Correction}
 \newacronym{MIC}{MIC}{Medical Imaging Convention}
 \newacronym{MI}{MI}{Mutual Information}
-\newacronym{MLe}{ML}{Machine Learning}
-\newacronym{MLi}{ML}{Maximum Likelihood}
 \newacronym{MLAA}{MLAA}{Maximum Likelihood Reconstruction of Activity and Attenuation}
 \newacronym{MLACF}{MLACF}{Maximum Likelihood Activity and Attenuation Correction Factors Estimation}
-\newacronym{MLE}{MLE}{Maximum Likelihood Estimation}
 \newacronym{MLEM}{MLEM}{Maximum Likelihood Expectation Maximisation}
+% \newacronym{MLE}{MLE}{Maximum Likelihood Estimation}
+% \newacronym{ML}{ML}{Machine Learning}
+\newacronym{ML}{ML}{Maximum Likelihood}
 \newacronym{MM}{MM}{Motion Model}
 \newacronym{MNI}{MNI}{Montreal Neurological Institute}
-\newacronym{MPI}{MPI}{Myocardial Perfusion Imaging}
+% \newacronym{MPI}{MPI}{Myocardial Perfusion Imaging}
 \newacronym{MR}{MR}{Magnetic Resonance}
 \newacronym{MSc}{MSc}{Master of Science}
 \newacronym{MSE}{MSE}{Mean Squared Error}
@@ -135,9 +110,9 @@
 \newacronym{NMI}{NMI}{Normalised Mutual Information}
 \newacronym{ND}{ND}{$n$-Dimensional}
 \newacronym{NLP}{NLP}{Natural Language Processing}
-\newacronym{Non-MC}{Non-MC}{Non-Motion Corrected}
+% \newacronym{Non-MC}{Non-MC}{Non-Motion Corrected}
 \newacronym{NN}{NN}{Neural Network}
-\newacronym{Non-RD}{Non-RD}{Non-Rigid Deformation}
+% \newacronym{Non-RD}{Non-RD}{Non-Rigid Deformation}
 \newacronym{Non-TOF}{Non-TOF}{Non-Time of Flight}
 \newacronym{OSEM}{OSEM}{Ordered Subset Expectation Maximisation}
 \newacronym{OSIC}{OSIC}{Open Source Imaging Consortium}
@@ -145,19 +120,19 @@
 \newacronym{PC}{PC}{Principal Component}
 \newacronym{PCA}{PCA}{Principal Component Analysis}
 \newacronym{PET}{PET}{Positron Emission Tomography}
-\newacronym{PLL}{PLL}{Poisson Log Likelihood}
+% \newacronym{PLL}{PLL}{Poisson Log Likelihood}
 \newacronym{PMT}{PMT}{Photomultiplier Tube}
 \newacronym{PReLU}{PReLU}{Parametric Rectified Linear Unit}
 \newacronym{PSD}{PSD}{Power Spectral Density}
 \newacronym{PSMA}{PSMA}{Prostate Specific Membrane Antigen}
-\newacronym{PT}{PT}{Patient}
+% \newacronym{PT}{PT}{Patient}
 \newacronym{RAE}{RAE}{Relative Absolute Error}
 \newacronym{RANSAC}{RANSAC}{Random Sample Consensus}
 \newacronym{RCM}{RCM}{Respiratory Correspondence Model}
-\newacronym{RD}{RD}{Rigid Deformation}
+% \newacronym{RD}{RD}{Rigid Deformation}
 \newacronym{RDP}{RDP}{Relative Difference Prior}
-\newacronym{RM}{RM}{Respiratory Motion}
-\newacronym{RMC}{RMC}{Respiratory Motion Correction}
+% \newacronym{RM}{RM}{Respiratory Motion}
+% \newacronym{RMC}{RMC}{Respiratory Motion Correction}
 \newacronym{RMSE}{RMSE}{Root Mean Square Error}
 \newacronym{ROI}{ROI}{Region of Interest}
 \newacronym{RPM}{RPM}{Real Time Position Management}
@@ -180,9 +155,9 @@
 \newacronym{TAC}{TAC}{Time Activity Curve}
 \newacronym{TCM}{TCM}{Tissue Compartment Model}
 \newacronym{TOF}{TOF}{Time of Flight}
-\newacronym{TPS}{TPS}{Thin Plate Spline}
-\newacronym{TSPO}{TSPO}{Translocator Protein 18 kDa}
+% \newacronym{TPS}{TPS}{Thin Plate Spline}
+\newacronym{TSPO}{TSPO}{Translocator Protein $18$ kDa}
 \newacronym{TV}{TV}{Total Variation}
 \newacronym{VOI}{VOI}{Volume of Interest}
 \newacronym{VT}{V$_{\mathrm{T}}$}{Volume of Distribution}
-\newacronym{XCAT}{XCAT}{$4$ Dimensional Extended Cardiac Torso}
+\newacronym{XCAT}{XCAT}{Four Dimensional Extended Cardiac Torso}
