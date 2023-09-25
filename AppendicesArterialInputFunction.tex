@@ -52,7 +52,7 @@
                     
                     \item \textbf{\gls{NN}-\gls{AIF}} - metabolite-corrected \gls{AIF} obtained from (uncorrected) arterial plasma input to \gls{NN}$_3$.
                     
-                    \item \textbf{\gls{NN}-\gls{AE}\gls{IF}} - metabolite-corrected \gls{IF} obtained from dynamic \gls{PET} images input to \gls{NN}$_{1,2,3}$.
+                    \item \textbf{\gls{NN}-\gls{AE}\gls{IF}} - metabolite-corrected \gls{IF} obtained from dynamic \gls{PET} images input to \gls{NN}$_{1, 2, 3}$.
                 \end{itemize}
     
     \longsection{Results}{sec:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_results}
@@ -61,20 +61,32 @@
             
             \includegraphics[width=1.0\linewidth]{figures/arterial_input_function_correlation.png}
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 Predicted $V_{\mathrm{T}} \in \mathbb{R}^{r \times s}$ in the test-set subjects, with $r = 69$ and $s=5$ estimated with the four candidate signals, correlated to the True \gls{VT} (obtained with TRUE-\gls{AIF}). Please note that for the \gls{NN}-based methods, the displayed \glspl{VT} were averaged over all realisations.
             }
             \label{fig:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_results_correlation}
-       \end{figure}
+        \end{figure}
     
         
        \Fref{fig:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_results_correlation} reports the correlation analyses between the predicted \gls{VT} values (obtained by the four candidate methods) and the true \gls{VT} values. For all methods, predicted \gls{VT} values positively correlate with true \gls{VT} values, with \gls{NN}-\gls{AIF} and \gls{IDIF} showing the highest and the lowest Pearson correlation coefficient ($\rho$), as well as the smallest and largest angular distance to the identity line, respectively $\rho = 0.97 \; \& \;  \theta \approx 4^{\circ}$ vs $\rho = 0.35 \; \&  \; \theta \approx 36^{\circ}$. Overall, \gls{NN}-\gls{AE}\gls{IF} outperformed \gls{NN}-\gls{IDIF} in terms of Pearson correlation coefficient and angular distance $\rho = 0.93 \; \& \; \theta  \approx 4^{\circ}$ vs $\rho = 0.81 \; \&  \; \theta \approx 10^{\circ}$. With regard to the variance analysis, \gls{NN}-\gls{AE}\gls{IF} outperforms both \gls{NN}-\gls{AIF} and \gls{NN}-\gls{IDIF}, showing the lowest \gls{CV}, while \gls{NN}-\gls{AIF} and \gls{NN}-\gls{IDIF} do not differ in terms of \gls{CV} values (p$>0.05$).
     
     \longsection{Discussion and Conclusions}{sec:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_discussion_and_conclusions}
+        \begin{figure}
+            \centering
+            
+            \includegraphics[width=1.0\linewidth]{figures/background_lstm.png}
+            
+            \captionsetup{singlelinecheck=false}
+            \caption{
+                Graphical representation of an unrolled \gls{LSTM}. This figure shows from the left to the right the process of feeding a time series to an \gls{LSTM}. This figure also shows not only the output at a given time point but also how information flows from the past to the future. In the centre of this figure an \gls{LSTM} node can be seen transforming X$_t$ to h$_t$. This transformation takes place taking into account information passed from the transformation of x$_{t-1}$ to h$_{t-1}$ etc. The flow of information is shown within the grey box. There are numerous gates which allow the \gls{LSTM} to selectively remember or forget information by controlling how this flows to the transformation of X$_{t+1}$ to h$_{t+1}$.
+            }
+            \label{fig:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_results_lstm}
+        \end{figure}
+       
         This work presents an innovative Bayesian \gls{NN}-based approach for estimating the \gls{AIF} from dynamic \gls{PET} images and clinical variables. This approach shares similarities with previous methods developed for \gls{PET} tracers that do not produce radio-metabolites, such as [$^{18}$F]\gls{FDG}. In this study, additional efforts were devoted to address \gls{PBR28} radio-metabolite correction. One of the main advantages of the proposed method is that it provides a measure of confidence in the generated signal for unseen data. Additionally, the method's modular design allows each part to be used independently. For example, in this work, metabolite correction was applied to a signal generated by a more traditional method (\gls{IDIF}). 
         
         The four candidate signals were compared to the gold standard TRUE-\gls{AIF}, obtained from arterial blood sampling and metabolite correction. Overall, \gls{NN}-\gls{AE}\gls{IF} demonstrated comparable performance in terms of correlation and bias to \gls{NN}-\gls{AIF}, with the lowest variance of the estimated \gls{VT}, as measured by the \gls{CV}. This improved performance can potentially be explained by the larger amount of input data and the consequently more complex model with additional parameters. Interestingly, the \gls{NN}-\gls{IDIF} method was able to improve on the traditional \gls{IDIF} approach, as evidenced by a higher correlation coefficient and a lower angular distance from the identity line.
         
-        The proposed approach has some limitations, including the small training size, which hindered the assessment of the prediction accuracy within subsets of clinical populations in the test-set (i.e., patients vs healthy controls). In the future, the accuracy of the model could be improved through the inclusion of an attention layer either before or after the latent layer of the \gls{AE}, validated through the use of an ablation study. As well as the replacement of the fully connected layers with a transformer based approach.
+        The proposed approach has some limitations, including the small training size, which hindered the assessment of the prediction accuracy within subsets of clinical populations in the test-set (i.e., patients vs healthy controls). In the future, the accuracy of the model could be improved through the inclusion of an attention layer either before or after the latent layer of the \gls{AE}, validated through the use of an ablation study. As well as the replacement of the fully connected layers with an \gls{LSTM} or transformer based approach. A graphical representation of the structure of an \gls{LSTM} can be seen in~\Fref{fig:a_bayesian_neural_network-based_method_for_the_extraction_of_a_metabolite_corrected_arterial_input_function_from_dynamic_pbr28_pet_appendix_results_lstm}.
     

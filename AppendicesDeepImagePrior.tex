@@ -10,11 +10,60 @@
         For \gls{PET}, there have been a number of adaptations of \gls{DIP}.~\parencite{Gong2019PETPrior} used a U-Net with relatively high count/low motion brain scans~\parencite{Weng2021INet:Segmentation}. In~\parencite{Hashimoto20214DNetwork} \gls{DIP} is extended to \gls{4D} dynamic \gls{PET}. To do this, multiple output branches are grafted onto the \gls{NN}, one for each dynamic time point.~\parencite{Hashimoto2019DynamicDatasets} uses the original or static \gls{PET} acquisition as input to the \gls{NN}, rather than noise.~\parencite{Yang2022SimultaneousPrior} represents a more recent extension, where multiple \glspl{NN} are used simultaneously.
         
         This work seeks to extend or simplify previous work, in order to denoise \gls{4D} dynamic \gls{PET} data.
+    
     \longsection{Methods}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods}
         \subsection{Network Design and Execution} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution}
-            Firstly, we reduced \gls{GPU} memory requirements. Because \gls{DIP} requires training at inference, the full amount of memory is needed every time the method is used. To aid in clinical adoption, a hard limit of \SI{8.0}{\giga\byte} \gls{GPU} memory was imposed. Secondly, a more robust stopping criteria is required. The stopping criteria should be flexible so as to allow the method to correct a wider variety of inputs.  One method would be, to look at a window of previous loss function values, and exit, when the gradient of this drops below a tolerance. To aid in achieving this, as well as to address weaknesses of the original \gls{DIP}, regularisation must be added, so as to stop the \gls{NN} fitting to noise, similar to~\parencite{Liu2019ImagePrior}. Finally, because the output from this method is to be used in a further kinetic model fitting, it may provide improved results to have a metric of the uncertainty in the denoised images. We used dropout as in~\parencite{Gal2016DropoutLearning} to approximate (more expensive) Bayesian inference. Furthermore, this work uses \gls{PET} data with a \gls{FOV} of the lung and liver, whereas most previous work uses a \gls{FOV} of the head.
+            \begin{figure}
+                \centering
+                
+                \includegraphics[width=1.0\linewidth]{figures/background_dropout.png}
+                
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of dropout. On the left of this figure a \gls{NN} which is experiencing a large degree of dropout can be seen. Here, nodes which have been dropped are represented with a cross through it and their outgoing/incoming connections are remove. On the right of this figure the same network can be seen without dropout and will all nodes active and fully connected.
+                }
+                \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_dropout}
+            \end{figure}
+            
+            \begin{figure}
+                \centering
+                
+                \includegraphics[width=0.7\linewidth]{figures/background_activation_functions.png}
+                
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of a number of activation functions. In the top left of this figure can be seen the sigmoid function. This function compresses the range of the input to be between zero and one. However, values which are much outside of the range of zero to one can have the contrast between them significantly reduced. For instance values with a magnitude of difference could become almost indistinguishable once transformed. Furthermore, because this activation is bounded both above and below the sigmoid function suffers with the vanish gradient problem (where the gradient becomes so small that values are updated very slowly or not at all). However, the sigmoid function does not suffer with the exploading gradient problem (where the gradient becomes so large that optimisation is unstable). In the top right of this figure the tanh activation function can be seen. This activation function is a scaled version of the sigmoid activation function. In the middle left of this figure the \gls{ReLU} activation can be seen. This activation is very quick to compute. However, the \gls{ReLU} activation function suffers when values become less than zero, there is no gradient here and as such the values cannot change, this is the dead \gls{ReLU} problem. In the bottom right of this figure the \gls{ELU} activation can be seen. This activation is similar to the \gls{ReLU} activation, in contrast this activation does not suffer from the dead \gls{ReLU} problem. However, because of the exponent this activation function is slow to compute. In the bottom right of this figure the leaky \gls{ReLU} can be seen. Here, rather than setting all negative values to zero the negative region of the activation function is set to a scaled version of the input. This means that leaky \gls{ReLU} does not suffer from the dead \gls{ReLU} problem.
+                }
+                \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_activation_functions}
+            \end{figure}
+
+            \begin{figure}
+                \centering
+                
+                \includegraphics[width=1.0\linewidth]{figures/background_selu.png}
+                
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the \gls{SELU} activation function. This figure shows a scaled version of the \gls{ELU} activation function showed in~\Fref{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_activation_functions}. The same advantages and disadvantages as with \gls{ELU} are apparent here. However, as an additional advantage if the input data to this activation are normalised then the output of the activation will also be normalised.
+                }
+                \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_selu}
+            \end{figure}
+
+            \begin{figure}
+                \centering
+                
+                \includegraphics[width=1.0\linewidth]{figures/background_cnn.png}
+                
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the process of convolution. This figure shows a $3\times3$ convolution kernel operating on a padded image at the bottom of the figure to create the new image at the top of the figure. For a \gls{CNN} each value in the convolution kernel is determined using weights and biases, like in a fully connected \gls{NN}. However, rather than there being a weight and bias for every element in the input data there is only one for the kernel. Therefore, the number of parameters is significantly reduced and if the \gls{NN} is fully convolutional then the input size does not have to be fixed.
+                }
+                \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_cnn}
+            \end{figure}
+            
+            Firstly, we reduced \gls{GPU} memory requirements. Because \gls{DIP} requires training at inference, the full amount of memory is needed every time the method is used. To aid in clinical adoption, a hard limit of \SI{8.0}{\giga\byte} \gls{GPU} memory was imposed. Secondly, a more robust stopping criteria is required. The stopping criteria should be flexible so as to allow the method to correct a wider variety of inputs.  One method would be, to look at a window of previous loss function values, and exit, when the gradient of this drops below a tolerance. To aid in achieving this, as well as to address weaknesses of the original \gls{DIP}, regularisation must be added, so as to stop the \gls{NN} fitting to noise, similar to~\parencite{Liu2019ImagePrior}. Finally, because the output from this method is to be used in a further kinetic model fitting, it may provide improved results to have a metric of the uncertainty in the denoised images. We used dropout as in~\parencite{Gal2016DropoutLearning} to approximate (more expensive) Bayesian inference. A graphical representation of dropout can be seen in~\Fref{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_dropout}. Furthermore, this work uses \gls{PET} data with a \gls{FOV} of the lung and liver, whereas most previous work uses a \gls{FOV} of the head.
         
-            The \gls{NN} used was a modified U-Net~\parencite{Weng2021INet:Segmentation}, with seven down/upsampling stages. Each down/upsampling stage consisted of two convolutional layers (with two, four, eight, $16$, $32$, $64$, or $128$ channels, depending on depth). Followed by, either a split strided convolution and maxpooling layer (with the result concatenated), or a trilinear upsampling layer. Edge padding, group normalisation~\parencite{Wu2020GroupNormalization}, MISH activation~\parencite{Misra2019Mish:Function}, and spatial dropout, were used with every convolutional layer. Data was edge padded to the nearest power of two, and the input data had Gaussian noise summed to it. Both input and label data were standardised. \gls{MSE} and \gls{TV} were used as the loss function. AdamW~\parencite{Loshchilov2019DecoupledRegularization} was used as optimiser. Training continued for all methods until the gradient of the loss function, over a window of previous results, reduced below a threshold. Parameters were tuned using a grid search.
+            The \gls{NN} used was a modified U-Net~\parencite{Weng2021INet:Segmentation}, with seven down/upsampling stages. Each down/upsampling stage consisted of two convolutional layers (with two, four, eight, $16$, $32$, $64$, or $128$ channels, depending on depth). Followed by, either a split strided convolution and maxpooling layer (with the result concatenated), or a trilinear upsampling layer. Edge padding, group normalisation~\parencite{Wu2020GroupNormalization}, MISH activation~\parencite{Misra2019Mish:Function}, and spatial dropout, were used with every convolutional layer. An example of some activation functions can be seen in~\Fref{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_activation_functions} and a self-regularising activation function, which was considered for this work, can be seen in~\Fref{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_selu}. A graphical representation of the process of convolution can be seen in~\Fref{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution_cnn}. Data was edge padded to the nearest power of two, and the input data had Gaussian noise summed to it. Both input and label data were standardised. \gls{MSE} and \gls{TV} were used as the loss function. AdamW~\parencite{Loshchilov2019DecoupledRegularization} was used as optimiser. Training continued for all methods until the gradient of the loss function, over a window of previous results, reduced below a threshold. Parameters were tuned using a grid search.
             
             Two training regimes were explored, one where each time point was treated independently, and another, where the model weights were saved and then independently updated on each time point (the mean of the new model's weights was taken for the next iteration).
         
@@ -41,7 +90,7 @@
             
             \includegraphics[width=0.7\linewidth]{figures/deep_image_prior_results_visual_analysis.png}
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 First column contains, a visual analysis between the ground truth and denoised results (taken for the last time point, plus \gls{SSIM} to the ground truth), and the second column contains, the $K_i$ results (all voxels in a coronal view) of a Patlak reconstruction of all time points (plus \gls{SSIM} to the ground truth), for the ground truth, and data denoised using, \gls{TV}, the implementation of \gls{DIP} from~\parencite{Gong2019PETPrior}, and our new implementation of \gls{DIP}, trained sequentially and combined (taken for the lung \gls{FOV}). Last row contains, uncertainty volumes, for the data denoised using our new implementation of \gls{DIP}, trained sequentially and combined (taken for the last time point of the lung \gls{FOV}). Colour map ranges are consistent for all images in each section.
             }
@@ -53,7 +102,7 @@
             
             \includegraphics[width=1.0\linewidth]{figures/deep_image_prior_results_ki.png}
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 $K_i$ results (single voxel) of a Patlak reconstruction of all time points, plus uncertainty where applicable, for the ground truth, and data denoised using, \gls{TV}, the implementation of \gls{DIP} from~\parencite{Gong2019PETPrior}, and our new implementation of \gls{DIP}, trained sequentially and combined.
             }
@@ -65,7 +114,7 @@
             
             \includegraphics[width=1.0\linewidth]{figures/deep_image_prior_results_tac.png}
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 A \gls{TAC} through a lesion, fit as a third order polynomial regression, with weighting using uncertainty (where available), for the ground truth, the original noisy data, and this data denoised using, \gls{TV}, the implementation of \gls{DIP} from~\parencite{Gong2019PETPrior}, and our new implementation of \gls{DIP}, trained sequentially and combined, both with and without uncertainty (taken for the lung \gls{FOV}).
             }
@@ -77,7 +126,7 @@
             
             \includegraphics[width=1.0\linewidth]{figures/deep_image_prior_results_profile.png}
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 A profile through a lesion, in the \gls{SI} direction, for the ground truth, the original noisy data, and this data denoised using, \gls{TV}, the implementation of \gls{DIP} from~\parencite{Gong2019PETPrior}, and our new implementation of \gls{DIP}, trained sequentially and combined (taken for the last time point of the lung \gls{FOV}).
             }
@@ -87,7 +136,7 @@
         \begin{table}
             \centering
             
-            \captionsetup{singlelinecheck=false, justification=centering}
+            \captionsetup{singlelinecheck=false}
             \caption{
                 Comparison of \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak}, for the ground truth, the original noisy data, and this data denoised using, \gls{TV}, the implementation of \gls{DIP} from~\parencite{Gong2019PETPrior}, and our new implementation of \gls{DIP}, trained sequentially and combined (taken for the last time point of the lung \gls{FOV}).
             }

@@ -55,8 +55,23 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_beta_plus_decay.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical example of $\beta+$-decay. Here in the top left of the figure a nucleus can be seen which is unstable as it has an imbalance of protons and neutrons. A positron can be seen exiting the nucleus as a byproduct of $\beta+$-decay converting a proton into a neutron. In the bottom right of the figure a closer example of this can be seen. Here it directly shows a specific proton and the neutron, positron and neutrino which are produced by $\beta+$-decay.} \label{fig:decay_and_annihilation_beta_plus_decay}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical example of $\beta+$-decay. Here in the top left of the figure a nucleus can be seen which is unstable as it has an imbalance of protons and neutrons. A positron can be seen exiting the nucleus as a byproduct of $\beta+$-decay converting a proton into a neutron. In the bottom right of the figure a closer example of this can be seen. Here it directly shows a specific proton and the neutron, positron and neutrino which are produced by $\beta+$-decay.
+                    }
+                    \label{fig:decay_and_annihilation_beta_plus_decay}
+                \end{figure}
+
+                \begin{figure}
+                    \centering
+                    
+                    \includegraphics[width=1.0\linewidth]{figures/background_beta_minus_decay.png}
+                    
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical example of $\beta-$-decay. Here in the top left of the figure a nucleus can be seen which is unstable as it has an imbalance of protons and neutrons. A electron can be seen exiting the nucleus as a byproduct of $\beta-$-decay converting a neutron into a proton. In the bottom right of the figure a closer example of this can be seen. Here it directly shows a specific neutron and the proton, electron and antineutrino which are produced by $\beta-$-decay.
+                    }
+                    \label{fig:decay_and_annihilation_beta_minus_decay}
                 \end{figure}
                 
                 \begin{figure}
@@ -64,11 +79,14 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_positron_range.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical example of positron range. Here on the right of the figure an atom can be seen travelling with some velocity, a positron is emitted from the nucleus of the atom by $\beta+$-decay. The path that this positron takes can be seen in the centre of the figure represented by a blue line, this path is the positron range. On the left of the figure the annihilation of the positron with an electron occurs and the $\gamma$-photons emitted $\SI{180}{^{\circ}}$ apart are shown.} \label{fig:decay_and_annihilation_positron_range}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical example of positron range. Here on the right of the figure an atom can be seen travelling with some velocity, a positron is emitted from the nucleus of the atom by $\beta+$-decay. The path that this positron takes can be seen in the centre of the figure represented by a blue line, this path is the positron range. On the left of the figure the annihilation of the positron with an electron occurs and the $\gamma$-photons emitted $\SI{180}{^{\circ}}$ apart are shown.
+                    }
+                    \label{fig:decay_and_annihilation_positron_range}
                 \end{figure}
                 
-                Radionuclides used in \gls{PET} undergo a type of decay called $\beta+$-decay~\parencite{conti_beta}. This is due to an instability of the radionuclide, because of an imbalance in the number of neutrons to protons in the nucleus. As a consequence, a proton in the atoms nucleus is converted into a neutron subsequently releasing a positron and a neutrino. This can be seen in~\Fref{fig:decay_and_annihilation_beta_plus_decay}. The emitted positron travels with some decreasing velocity, because of sequential collisions, through the body of the patient, for a distance called its positron range.  When the positron will have dissipated its kinetic energy, it will finally collides and annihilates with its antiparticle, the electron. This can be seen in~\Fref{fig:decay_and_annihilation_positron_range}~\parencite{EvansPositronBib}. %KT citation probably not  needed
+                Radionuclides used in \gls{PET} undergo a type of decay called $\beta+$-decay~\parencite{conti_beta}. This is due to an instability of the radionuclide, because of an imbalance in the number of neutrons to protons in the nucleus. As a consequence, a proton in the atoms nucleus is converted into a neutron subsequently releasing a positron and a neutrino. This can be seen in~\Fref{fig:decay_and_annihilation_beta_plus_decay}. The other kind of $\beta$-decay, $beta-$-decay can also be seen in~\Fref{fig:decay_and_annihilation_beta_minus_decay}. The emitted positron travels with some decreasing velocity, because of sequential collisions, through the body of the patient, for a distance called its positron range.  When the positron will have dissipated its kinetic energy, it will finally collides and annihilates with its antiparticle, the electron. This can be seen in~\Fref{fig:decay_and_annihilation_positron_range}~\parencite{EvansPositronBib}. %KT citation probably not  needed
                 
                 The annihilation of positron and electron causes the emission of two $511$ \gls{KeV} $\gamma$-photons at $\approx\SI{180}{^{\circ}}$ apart from one another, thus travelling in approximately opposite directions. However, because the positron-electron pair may not be at rest at the moment of their annihilation, the two emitted photons can show a certain degree of non-collinearity, according to the laws of conservation of momentum. This means that the $\gamma$-photons are almost never exactly $\SI{180}{^{\circ}}$ apart~\parencite{scienceofpetspringer}. %KT I'd cut the last sentence. repetition and you don't want to over-elaborate this
                 %, because the positron will usually have a small kinetic energy going into the annihilation. This kinetic energy is conserved after the annihilation as a force in a different direction, usually, to that of the force from the annihilation itself.
@@ -92,8 +110,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_total_body_pet.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the difference between a total body \gls{PET} scanner and a standard \gls{PET} scanner. On the left of the figure a total body \gls{PET} scanner can be seen where the rings of detectors completely engulf the patient. However, on the right of the figure a standard \gls{PET} scanner can be seen where the rings of detectors only cover a portion of the patient. On the case on the right of the figure in order to take a scan over the entire body either individual acquisitions will be needed and concatenated or the bed would have to move while the acquisition was ongoing.} \label{fig:pet_fov_total_body_pet}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the difference between a total body \gls{PET} scanner and a standard \gls{PET} scanner. On the left of the figure a total body \gls{PET} scanner can be seen where the rings of detectors completely engulf the patient. However, on the right of the figure a standard \gls{PET} scanner can be seen where the rings of detectors only cover a portion of the patient. On the case on the right of the figure in order to take a scan over the entire body either individual acquisitions will be needed and concatenated or the bed would have to move while the acquisition was ongoing.
+                    }
+                    \label{fig:pet_fov_total_body_pet}
                 \end{figure}
                 
                 The \gls{FOV} of the scanner is the area in which $\gamma$-photons can be detected. Current clinical \gls{PET} scanners, usually, have a cylindrical \gls{FOV} with a length of between \SI{15.0}{\centi\metre} and \SI{25.0}{\centi\metre} and a diameter of between \SI{50.0}{\centi\metre} and \SI{70.0}{\centi\metre}~\parencite{Pan2019}.
@@ -116,9 +137,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_scatter.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a $\gamma$-photon scattering off of a particle. The $\gamma$-photon can be seen entering the figure on the left hand side before scattering off of a particle in the centre of the figure by an angle $\theta$ and exiting the figure on the top right hand corner. The electron exits the scatter event with some velocity represented by the arrow towards the bottom right. 
-                    } \label{fig:attenuation_scatter}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a $\gamma$-photon scattering off of a particle. The $\gamma$-photon can be seen entering the figure on the left hand side before scattering off of a particle in the centre of the figure by an angle $\theta$ and exiting the figure on the top right hand corner. The electron exits the scatter event with some velocity represented by the arrow towards the bottom right. 
+                    }
+                    \label{fig:attenuation_scatter}
                 \end{figure}
                 
                 %KT ``amount of counts'' is not correct. it's a process, or effect, not a number
@@ -158,8 +181,11 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_coincidence.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of the different types of coincidences possible in \gls{PET}. On the left of the figure a true coincidence can be seen, this is where the $\gamma$-photons from one annihilation are both detected without scattering. In the middle of the figure a scattered coincidence can be seen, this is where the $\gamma$-photons from one annihilation are both detected, however in this case one of them has scattered. On the right of the figure a random coincidence can be seen, this is where the $\gamma$-photons from two unrelated annihilations are detected.} \label{fig:data_acquisition_coincidence}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the different types of coincidences possible in \gls{PET}. On the left of the figure a true coincidence can be seen, this is where the $\gamma$-photons from one annihilation are both detected without scattering. In the middle of the figure a scattered coincidence can be seen, this is where the $\gamma$-photons from one annihilation are both detected, however in this case one of them has scattered. On the right of the figure a random coincidence can be seen, this is where the $\gamma$-photons from two unrelated annihilations are detected.
+                }
+                \label{fig:data_acquisition_coincidence}
             \end{figure}
             
             As discussed in~\Fref{sec:pet_field_of_view}, the structure of a \gls{PET} scanner is that of concentric rings of detectors offset along a central axis. These rings detect each incident photon and attempt to temporally and spatially link opposing photons along a \gls{LOR} through the scanner. A \gls{LOR} being a line through the \gls{FOV} of the scanner linking two detectors. The methods through which the scanner attempts to %detect incident photons and then 
@@ -198,8 +224,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_septa.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the cross section of the septa used for collimation in \gls{2D} \gls{PET} acquisitions. In this figure a point can be shown casting paths into the slits of the septa, as can be seen the paths from the point can only pass through the slits of the septa in positions where the angle of the line with respect the the walls of the septa is acute.} \label{fig:2d_and_3d_acquisition_septa}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the cross section of the septa used for collimation in \gls{2D} \gls{PET} acquisitions. In this figure a point can be shown casting paths into the slits of the septa, as can be seen the paths from the point can only pass through the slits of the septa in positions where the angle of the line with respect the the walls of the septa is acute.
+                    }
+                    \label{fig:2d_and_3d_acquisition_septa}
                 \end{figure}
                 
                 There are two different methods used in \gls{PET} to determine or constrain to be certain of the spatial position or angle of the \gls{LOR} along the axis of the scanner, these are as follows.
@@ -219,8 +248,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_detector.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the block detector structure of the scintillator crystal and the photodetector (with multiple scintillator crystals per photodetector), on the left of the figure, and an example of how these block detectors would be combined to construct a ring of a \gls{PET} scanner, on the right of this figure.} \label{fig:photon_detection_detector}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the block detector structure of the scintillator crystal and the photodetector (with multiple scintillator crystals per photodetector), on the left of the figure, and an example of how these block detectors would be combined to construct a ring of a \gls{PET} scanner, on the right of this figure.
+                    }
+                    \label{fig:photon_detection_detector}
                 \end{figure}
                 
                 \begin{figure}
@@ -228,8 +260,23 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_photomultiplier.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a scintillator crystal coupled to a \gls{PMT}. On the left of this figure a photon can be seen impinging upon the scintillator crystal and then being attenuated by the photoelectric effect at some depth. The electrons produced by this can then be seen, in the centre of this figure, interacting with the photocathode before being focused onto the first dynode. On the right of this figure, a naive representation, the amplification of the electrons can be seen by subsequent dynodes.} \label{fig:photon_detection_photomultiplier}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a scintillator crystal coupled to a \gls{PMT}. On the left of this figure a photon can be seen impinging upon the scintillator crystal and then being attenuated by the photoelectric effect at some depth. The electrons produced by this can then be seen, in the centre of this figure, interacting with the photocathode before being focused onto the first dynode. On the right of this figure, a naive representation, the amplification of the electrons can be seen by subsequent dynodes.
+                    }
+                    \label{fig:photon_detection_photomultiplier}
+                \end{figure}
+
+                \begin{figure}
+                    \centering
+                    
+                    \includegraphics[width=1.0\linewidth]{figures/background_semiconductor.png}
+                    
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a simplification of the struction of a semiconductor. On the left of this figure one type of silicone can be seen, be it positive or negative, with a junction in the middle to the other type of silicone on the right of this figure.
+                    }
+                    \label{fig:photon_detection_semiconductor}
                 \end{figure}
                 
                 PET detectors consist of two main components. Firstly, a scintillator crystal which, partially because of the photoelectric effect, when exposed to ionising radiation produces visible light through luminescence, and a photodetector or photomultiplier which amplifies the intensity of an input light similarly to how a vacuum tube or a transistor would amplify an electrical signal. These can be seen in~\Fref{fig:photon_detection_detector}.
@@ -253,7 +300,7 @@
                 \begin{itemize}
                     \item The first kind of photodetector to be used in \gls{PET} was the \gls{PMT}, this device functions using an initial photocathode and a focusing electrode which takes the output from the scintillator and directs it towards a chain of dynodes. Dynodes are an intermediate electrode which when struck by a photoelectron emit more photoelectrons at a more positive electrical potential through secondary emission. Each subsequent dynode is a a higher potential and emits more photoelectrons than the last causing the input signal to be amplified, this can be seen in~\Fref{fig:photon_detection_photomultiplier}. Some disadvantages of \glspl{PMT} are that they are relatively bulky, are effected by a magnetic field and have a relatively low efficiency at approximately \SI{25.0}{\percent}~\parencite{petspringer, SiPmBib}.
                     
-                    \item To attempt to combat the low efficiency mentioned above the \gls{APD} was developed, this device utilises a semiconductor where there is a junction between positive and negative type silicone, this is similar to a traditional diode. This allows for efficiencies approaching \SI{85.0}{\percent}, they are much smaller than \glspl{PMT} and are safe to be used in a magnetic field. However, this also comes with the drawbacks that \glspl{APD} produces so much heat that it requires an active cooling system and exhibits worse timing characteristics than \glspl{PMT}~\parencite{AvalanchePhotodiodeBib}. \glspl{APD} are the choice of many modern \gls{PET}/\gls{CT} scanners~\parencite{Vandendriessche2019}.
+                    \item To attempt to combat the low efficiency mentioned above the \gls{APD} was developed, this device utilises a semiconductor where there is a junction between positive and negative type silicone, this is similar to a traditional diode. A graphical representation of a semiconductor can be seen in~\Fref{fig:photon_detection_semiconductor}. This allows for efficiencies approaching \SI{85.0}{\percent}, they are much smaller than \glspl{PMT} and are safe to be used in a magnetic field. However, this also comes with the drawbacks that \glspl{APD} produces so much heat that it requires an active cooling system and exhibits worse timing characteristics than \glspl{PMT}~\parencite{AvalanchePhotodiodeBib}. \glspl{APD} are the choice of many modern \gls{PET}/\gls{CT} scanners~\parencite{Vandendriessche2019}.
                     
                     \item A further development on \glspl{APD} gave \glspl{SiPM} and \glspl{SSPM}. These devices combine the benefits of both \glspl{PMT} and \glspl{APD} in that they have a high efficiency, small size, are safe to be used in a magnetic field and have good timing characteristic. \glspl{SiPM} and \glspl{SSPM} are becoming the new default photodetectors in \gls{GE} scanners~\parencite{SiPmBib}.
                 \end{itemize}
@@ -266,8 +313,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_coincidence_processing.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the workflow from annihilation, to physical detection by the scanner, to then coincidence processing by the electronics of the scanner, before finally displaying some output to the user.} \label{fig:coincidence_processing_coincidence_processing}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the workflow from annihilation, to physical detection by the scanner, to then coincidence processing by the electronics of the scanner, before finally displaying some output to the user.
+                    }
+                    \label{fig:coincidence_processing_coincidence_processing}
                 \end{figure}
 
                 %KT first sentence sounds a bit weird. what does an LOR have to do with this? I'd shorten it.
@@ -281,8 +331,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_tof.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the concept of \gls{TOF}. The top middle of this figure shows the position where a hypothetical annihilation has occurred, plus the $\gamma$-photos from this annihilation which have then gone on to be detected by the scanner. The bottom left of this figure shows a traditional \gls{Non-TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} is constant. The bottom right of this figure shows a \gls{TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} can be approximated with a Gaussian based upon the difference in arrival time of both photons.} \label{fig:time_of_flight_pet_tof}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the concept of \gls{TOF}. The top middle of this figure shows the position where a hypothetical annihilation has occurred, plus the $\gamma$-photos from this annihilation which have then gone on to be detected by the scanner. The bottom left of this figure shows a traditional \gls{Non-TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} is constant. The bottom right of this figure shows a \gls{TOF} acquisition where the probability of the position of the annihilation along the \gls{LOR} can be approximated with a Gaussian based upon the difference in arrival time of both photons.
+                    }
+                    \label{fig:time_of_flight_pet_tof}
                 \end{figure}
                 
                 \begin{figure}
@@ -290,8 +343,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_non_tof_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some \gls{NAC} \gls{Non-TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_non_tof_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of some \gls{NAC} \gls{Non-TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.
+                    }
+                    \label{fig:time_of_flight_pet_non_tof_example}
                 \end{figure}
                 
                 \begin{figure}
@@ -299,8 +355,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_tof_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some \gls{NAC} \gls{TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:time_of_flight_pet_tof_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of some \gls{NAC} \gls{TOF} data, with noise, with no motion, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.
+                    }
+                    \label{fig:time_of_flight_pet_tof_example}
                 \end{figure}
                 
                 As stated above in~\Fref{sec:coincidence_processing}, in order for the coincidence window based method to determine which specific detected photons represent \glspl{LOR}, the scanner must be able to asses the difference in arrival time of each photon. %Because of this the scanner must record the absolute time at which it detects each incident photon. %KT delete previous sentence. it isn't really  necessary and essentially irrelevant anyway %ACW done
@@ -326,8 +385,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_sinogram_data_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some simulated sinogram data, with no motion, noise, randoms or scatters, of the thorax with a spherical lesion in one of the lung.} \label{fig:data_output_sinogram_data_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of some simulated sinogram data, with no motion, noise, randoms or scatters, of the thorax with a spherical lesion in one of the lung.
+                    }
+                    \label{fig:data_output_sinogram_data_example}
                 \end{figure}
                 
                 \begin{figure}
@@ -335,8 +397,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_viewgram_data_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of some simulated viewgram data, with no motion, noise, randoms or scatters, of the thorax with a spherical lesion in one of the lung.} \label{fig:data_output_viewgram_data_example} %KT fine, but it hardly shows what it's a sinogram (as you used a viewgram). maybe show both? %ACW done
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of some simulated viewgram data, with no motion, noise, randoms or scatters, of the thorax with a spherical lesion in one of the lung.
+                    }
+                    \label{fig:data_output_viewgram_data_example} %KT fine, but it hardly shows what it's a sinogram (as you used a viewgram). maybe show both? %ACW done
                 \end{figure}
                 
                 The output from a \gls{PET} scanner must be stored in a %universally understood
@@ -393,8 +458,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_mu_map_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of a simulated \gls{Mu-Map}, with no motion or noise, of the thorax with a spherical lesion in the lungs. Coronal view.} \label{fig:combined_pet_ct_mu_map_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of a simulated \gls{Mu-Map}, with no motion or noise, of the thorax with a spherical lesion in the lungs. Coronal view.
+                    }
+                    \label{fig:combined_pet_ct_mu_map_example}
                 \end{figure}
                 
                 \begin{figure}
@@ -402,8 +470,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_nAC_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of simulated \gls{NAC} \gls{TOF} data, with motion, with no noise randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_nAC_tof_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of simulated \gls{NAC} \gls{TOF} data, with motion, with no noise randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.
+                    }
+                    \label{fig:combined_pet_ct_nAC_tof_example}
                 \end{figure}
                 
                 \begin{figure} %KT if you're bored (!),I'd put the nAC and AC figures next to eachother
@@ -411,8 +482,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_ac_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of simulated \gls{AC} \gls{Non-TOF} data, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.} \label{fig:combined_pet_ct_ac_tof_example}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of simulated \gls{AC} \gls{Non-TOF} data, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.
+                    }
+                    \label{fig:combined_pet_ct_ac_tof_example}
                 \end{figure}
                 
                 As discussed previously in~\Fref{sec:attenuation} attenuation represents the loss of coincidences by photon interactions in matter. Attenuation is an issue in \gls{PET} as it causes the loss of signal and a degradation in image quality, this is the opposite for \gls{CT} where the modality itself relies on attenuation in order to differentiate anatomical structure, an example of a \gls{Mu-Map} can be seen in~\Fref{fig:combined_pet_ct_mu_map_example}. An example of some \gls{NAC} \gls{TOF} and \gls{AC} \gls{TOF} data can be seen in~\Fref{fig:combined_pet_ct_nAC_tof_example} and~\Fref{fig:combined_pet_ct_ac_tof_example} respectively. In order to find reasonable quantitative results the attenuation of the patient must be taken into account in \gls{PET}. %Both \gls{PET} and \gls{CT} follow the Beer-Lambert law. %KT cut last sentence.not  relevant here %ACW done
@@ -469,8 +543,11 @@
                         
                     \includegraphics[width=1.0\linewidth]{figures/background_optimisation.png}
                         
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a \gls{2D} solution space and an optimiser stepping through this space. In the bottom left of this figure the initial estimate for some optimisation can be seen at $x$, the subsequent iterations $1$ through $4$ can then be seen taking this estimate closer to the centre of the contour plot. Here the contour plot could either be showing a maximisation or a minimisation depending on how it is visualised.} \label{fig:optimiser_optimisation}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a \gls{2D} solution space and an optimiser stepping through this space. In the bottom left of this figure the initial estimate for some optimisation can be seen at $x$, the subsequent iterations $1$ through $4$ can then be seen taking this estimate closer to the centre of the contour plot. Here the contour plot could either be showing a maximisation or a minimisation depending on how it is visualised.
+                    }
+                    \label{fig:optimiser_optimisation}
                 \end{figure}
                 
                 An optimiser takes an estimate of the solution and an objective function, as seen in~\Fref{sec:objective_function} the objective function returns the goodness of the estimate which the optimiser can either maximise or minimise. The direction in which the optimiser updates the estimate is based on the gradient of the objective function. The method by which the optimiser updates the estimate is what differentiates optimisation algorithms.
@@ -511,8 +588,11 @@
                     
                 \includegraphics[width=1.0\linewidth]{figures/background_radon_transform.png}
                     
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of the Radon transform for one angle $\theta$. The Radon transform computes projections of some data along specified directions. Here, this figure shows the computation of a set of line integrals for the function $f(x, y)$, usually from multiple sources of parallel beams. To form a full image the Radon transform rotates the source around the centre of the image. This figure specifically shows projections for a simple \gls{2D} image along horizontal and vertical components $x$ and $y$.} \label{fig:analytic_image_reconstruction_radon_transform}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the Radon transform for one angle $\theta$. The Radon transform computes projections of some data along specified directions. Here, this figure shows the computation of a set of line integrals for the function $f(x, y)$, usually from multiple sources of parallel beams. To form a full image the Radon transform rotates the source around the centre of the image. This figure specifically shows projections for a simple \gls{2D} image along horizontal and vertical components $x$ and $y$.
+                }
+                \label{fig:analytic_image_reconstruction_radon_transform}
             \end{figure}
             
             \begin{figure}
@@ -520,8 +600,10 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_bp_example.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{BP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Example of a simulated \gls{AC} \gls{Non-TOF} \gls{BP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.
+                }
                 \label{fig:analytic_image_reconstruction_bp_example}
             \end{figure}
             
@@ -530,8 +612,10 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_fbp_example.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{FBP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Example of a simulated \gls{AC} \gls{Non-TOF} \gls{FBP} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.
+                }
                 \label{fig:analytic_image_reconstruction_fbp_example}
             \end{figure}
             
@@ -548,8 +632,10 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_osem_example.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion and noise, with no randoms or scatters, of the thorax with a spherical lesion in the lungs. Transverse view.
+                }
                 \label{fig:iterative_image_reconstruction_osem_example}
             \end{figure}
             
@@ -579,8 +665,10 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_motion_artefact_example.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Example of a simulated \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.
+                }
                 \label{fig:respiratory_motion_artefacts_motion_artefact}
             \end{figure}
             
@@ -589,8 +677,10 @@
                 
                 \includegraphics[width=1.0\linewidth]{figures/background_single_mu-map_ac_example.png}
                 
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Example of a simulated single \gls{Mu-Map} \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Example of a simulated single \gls{Mu-Map} \gls{AC} \gls{Non-TOF} \gls{OSEM} reconstruction, with motion, with no noise, randoms or scatters, of the thorax with a spherical lesion in the lungs. Coronal view.
+                }
                 \label{fig:respiratory_motion_artefacts_single_mu-map_ac}
             \end{figure}
             
@@ -637,8 +727,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_rd.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a rigid deformation. On the left a triangle with vertices $A$, $B$ and $C$ can be seen, this triangle undergoes a rigid deformation (a translation down and to the right) to a triangle, on the right, with vertices $A'$, $B'$ and $C'$.} \label{fig:rigid_transformations_rd}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a rigid deformation. On the left a triangle with vertices $A$, $B$ and $C$ can be seen, this triangle undergoes a rigid deformation (a translation down and to the right) to a triangle, on the right, with vertices $A'$, $B'$ and $C'$.
+                    }
+                    \label{fig:rigid_transformations_rd}
                 \end{figure}
                 
                 \begin{figure}
@@ -646,8 +739,11 @@
                     
                     \includegraphics[width=0.8\linewidth]{figures/background_ad.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of an affine transformation. In the centre a cyan leaf can be seen which undergoes an affine transformation (a translation down and to the left, a rotation anticlockwise and a scale down) to a red leaf, on the left. The cyan leaf also undergoes an affine transformation (a translation down and to the right, a rotation clockwise, a scale down and a skew) to a blue lead, on the right.} \label{fig:rigid_transformations_ad}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of an affine transformation. In the centre a cyan leaf can be seen which undergoes an affine transformation (a translation down and to the left, a rotation anticlockwise and a scale down) to a red leaf, on the left. The cyan leaf also undergoes an affine transformation (a translation down and to the right, a rotation clockwise, a scale down and a skew) to a blue lead, on the right.
+                    }
+                    \label{fig:rigid_transformations_ad}
                 \end{figure}
                 
                 A rigid deformation could be a rotation or a translation of the entire contents of an image where the same rotation or translation is applied at every point. A rigid deformation is one where the euclidean distance between every pair of points in the image is consistent before and after the deformation is applied, this can be seen in~\Fref{fig:rigid_transformations_rd}. Rigid deformations are a subset of a type of deformation called an affine transformation. A \gls{3D} rigid deformation has six degrees of freedom, being rotation and translation in every axis, whereas a \gls{3D} affine transformation has $12$ degrees of freedom, rotation, translation, scaling and sheering in every axis. An affine transformation does not guarantee that the euclidean distance between pairs of points are maintained, this can be seen in~\Fref{fig:rigid_transformations_ad}.
@@ -662,8 +758,11 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_nRD.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of a non-rigid deformation. On the left a grid can be seen, this grid undergoes a non-rigid deformation to the grid on the right.} \label{fig:non_rigid_deformation_nRD}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of a non-rigid deformation. On the left a grid can be seen, this grid undergoes a non-rigid deformation to the grid on the right.
+                    }
+                    \label{fig:non_rigid_deformation_nRD}
                 \end{figure}
                 
                 A non-rigid deformation is one where the euclidean distance between pairs of points is not maintained, this can be seen in~\Fref{fig:non_rigid_deformation_nRD}. Notice that the euclidean distance between where the lines of the grids intersects changes between the grid on the left and the grid on the right. %For example the motion of a fluid is a non-rigid deformation as pairs of points can move past each other by different amounts.
@@ -681,8 +780,11 @@
                     
                 \includegraphics[width=1.0\linewidth]{figures/background_amplitude_gating.png}
                     
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of amplitude gating. Here the red pseudo sinusoidal signal represents the \gls{SS} and the horizontal lines, colour coded differently, represent the amplitude gates that the data upon the \gls{SS} would be binned into.} \label{fig:respiratory_gating_ampliude_gating}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of amplitude gating. Here the red pseudo sinusoidal signal represents the \gls{SS} and the horizontal lines, colour coded differently, represent the amplitude gates that the data upon the \gls{SS} would be binned into.
+                }
+                \label{fig:respiratory_gating_ampliude_gating}
             \end{figure}
             
             \begin{figure}
@@ -690,8 +792,11 @@
                     
                 \includegraphics[width=1.0\linewidth]{figures/background_full_phase_gating_no_background.png}
                     
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of phase gating. Here the red pseudo sinusoidal signal represents the \gls{SS} and the vertical lines, colour coded differently, represent the phase gates that the data upon the \gls{SS} would be binned into.} \label{fig:respiratory_gating_full_phase_gating}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of phase gating. Here the red pseudo sinusoidal signal represents the \gls{SS} and the vertical lines, colour coded differently, represent the phase gates that the data upon the \gls{SS} would be binned into.
+                }
+                \label{fig:respiratory_gating_full_phase_gating}
             \end{figure}
             
             The method of respiratory gating was briefly touched on previously in~\Fref{sec:respiratory_motion_challenges_in_combined_pet_ct_imaging}. Here the process of specifically how respiratory gating works will be addressed. In order to separate \gls{PET} acquisition data (so that counts only in a certain window or respiratory phase are combined into specific gates or bins), a \gls{SS} which reflects the respiratory state of the patient, over time, must be acquired. This \gls{SS} can either directly reflect the amplitude of the patient's breathing or can be a percentage of the phase through which the patient is in the respiratory cycle, at any one time~\parencite{Kitamura2017TheMethods.}. These two types of \glspl{SS} directly influence the type of gating that will be performed, these two types are as follows.
@@ -713,8 +818,11 @@
                         
                     \includegraphics[width=1.0\linewidth]{figures/background_rpm.png}
                         
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Photograph of the \gls{RPM}. On the bottom is the infrared camera and infrared \glspl{LED} used to locate and track an infrared reflecting marker. On the top is the infrared reflecting marker which is placed onto the chest or stomach of the patient in order to track the respiratory amplitude of the patient. Four reflective points are used to track the marker in \gls{3D} plus a point for redundancy.} \label{fig:external_devices_rpm}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Photograph of the \gls{RPM}. On the bottom is the infrared camera and infrared \glspl{LED} used to locate and track an infrared reflecting marker. On the top is the infrared reflecting marker which is placed onto the chest or stomach of the patient in order to track the respiratory amplitude of the patient. Four reflective points are used to track the marker in \gls{3D} plus a point for redundancy.
+                    }
+                    \label{fig:external_devices_rpm}
                 \end{figure}
                 
                 \begin{figure}
@@ -722,8 +830,10 @@
                     
                     \includegraphics[width=1.0\linewidth]{figures/background_3dpc_example.png}
                     
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Example of a point cloud acquired on a Microsoft Kinect camera.}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Example of a point cloud acquired on a Microsoft Kinect camera.
+                    }
                     \label{fig:external_devices_3dpc_example}
                 \end{figure}
                 
@@ -747,8 +857,11 @@
                         
                     \includegraphics[width=1.0\linewidth]{figures/background_pca.png}
                         
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of \gls{PCA} applied to \gls{2D} data. In the centre the \gls{2D} data points on which \gls{PCA} has been applied can be seen. From bottom left to top right the first eigenvector can be seen with most variance, from top left to bottom right the second eigenvector can be seen with less variance.} \label{fig:data_driven_pca}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of \gls{PCA} applied to \gls{2D} data. In the centre the \gls{2D} data points on which \gls{PCA} has been applied can be seen. From bottom left to top right the first eigenvector can be seen with most variance, from top left to bottom right the second eigenvector can be seen with less variance.
+                    }
+                    \label{fig:data_driven_pca}
                 \end{figure}
                 
                 \begin{figure}
@@ -756,8 +869,11 @@
                         
                     \includegraphics[width=1.0\linewidth]{figures/background_pca_window.png}
                         
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the frequency spectrum for three \gls{PC}. On the right a frequency spectrum of one \gls{PC} with a frequency window between \SI{0.1}{\hertz} and \SI{0.4}{\hertz} and a low value peak in this window can be seen. In the centre another example of what can be seen on the left can be seen. On the left another frequency spectrum with a frequency window can be seen, however, here the peak in the frequency window is significantly higher than in the other two examples.} \label{fig:data_driven_pca_window}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the frequency spectrum for three \gls{PC}. On the right a frequency spectrum of one \gls{PC} with a frequency window between \SI{0.1}{\hertz} and \SI{0.4}{\hertz} and a low value peak in this window can be seen. In the centre another example of what can be seen on the left can be seen. On the left another frequency spectrum with a frequency window can be seen, however, here the peak in the frequency window is significantly higher than in the other two examples.
+                    }
+                    \label{fig:data_driven_pca_window}
                 \end{figure}
                 
                 There are numerous \gls{DD} methods used to extract a \gls{SS} directly from \gls{PET} data. Some methods require that the \gls{PET} data be reconstructed first and then markers, possibly inserted into the patient, are tracked over time. Methods requiring reconstruction are mostly inferior to methods which work on \gls{PET} acquisition data. This is because requiring that reconstruction be performed takes significant time and the \gls{SS}, itself, is usually required for most motion correction methods so the initial reconstructions will be poor. Here, of the methods using \gls{PET} acquisition data, only \gls{PCA} will be discussed as it has been proven that most static \gls{DD} \gls{SS} extraction methods perform similarly~\parencite{Thielemans2013ComparisonData}. Additionally, \gls{PCA} is the method of choice on \gls{GE} scanners.
@@ -780,8 +896,11 @@
                         
                 \includegraphics[width=0.9\linewidth]{figures/background_applying_image_registration_pairwise_groupwise_comparison.png}
                         
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of the difference in methodology of pair-wise and group-wise registration. At the top of this image pair-wise registration is shown. Here, the target image is registered to the reference image and this process will be repeated for the number of images which are to be registered. At the bottom of the image group-wise registration is shown. Here, a reference common to all target images is chosen (for instance a weighted sum of the target images), this ensures the reference image is located closer to all target images than if a single target image was chosen. pair-wise registration is complete after one iteration of registration, group-wise would involve updating the common reference and registering again for a set number of iterations, as seen in~\Fref{fig:applying_image_registration_group-wise_breakdown}} \label{fig:applying_image_registration_pair-wise_group-wise_comparison}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the difference in methodology of pair-wise and group-wise registration. At the top of this image pair-wise registration is shown. Here, the target image is registered to the reference image and this process will be repeated for the number of images which are to be registered. At the bottom of the image group-wise registration is shown. Here, a reference common to all target images is chosen (for instance a weighted sum of the target images), this ensures the reference image is located closer to all target images than if a single target image was chosen. pair-wise registration is complete after one iteration of registration, group-wise would involve updating the common reference and registering again for a set number of iterations, as seen in~\Fref{fig:applying_image_registration_group-wise_breakdown}
+                    }
+                    \label{fig:applying_image_registration_pair-wise_group-wise_comparison}
             \end{figure}
             
             \begin{figure}
@@ -789,8 +908,11 @@
                         
                 \includegraphics[width=0.4\linewidth]{figures/background_applying_image_registration_groupwise_breakdown.png}
                         
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of one method of implementing group-wise registration. The sub-images one through four show the initial setup used for this implementation and the sub-images five through $10$ show the subsequent iterations of the group-wise algorithm. Sub-image one shows an initial pair-wise registration of one image to the rest of the images in the series. Sub-image two shows how to find the mean position of all images by taking the mean of the deformations from the previous step. Sub-image three shows the inverse of the deformation from sub-image two. Sub-image four shows the deformations from sub-image one being composed with the deformation from sub-image three, thus there is now a deformation from each image to the mean position. Sub-image five shows the resultant deformations from the composition in sub-image four. Sub-image six shows the target images resampled using the deformations from sub-image five to form a reference image at the mean position. Sub-images seven through $10$ show incremental improvements to the reference image from subsequent iterations of registration and resampling.} \label{fig:applying_image_registration_group-wise_breakdown}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of one method of implementing group-wise registration. The sub-images one through four show the initial setup used for this implementation and the sub-images five through $10$ show the subsequent iterations of the group-wise algorithm. Sub-image one shows an initial pair-wise registration of one image to the rest of the images in the series. Sub-image two shows how to find the mean position of all images by taking the mean of the deformations from the previous step. Sub-image three shows the inverse of the deformation from sub-image two. Sub-image four shows the deformations from sub-image one being composed with the deformation from sub-image three, thus there is now a deformation from each image to the mean position. Sub-image five shows the resultant deformations from the composition in sub-image four. Sub-image six shows the target images resampled using the deformations from sub-image five to form a reference image at the mean position. Sub-images seven through $10$ show incremental improvements to the reference image from subsequent iterations of registration and resampling.
+                }
+                \label{fig:applying_image_registration_group-wise_breakdown}
             \end{figure}
             
             There are multiple ways to write an algorithm to motion correct a series of respiratory gated \gls{PET} volumes incorporating registration. Two of the most common are as follows.
@@ -809,8 +931,11 @@
                         
                 \includegraphics[width=1.0\linewidth]{figures/background_motion_model.png}
                         
-                \captionsetup{singlelinecheck=false, justification=raggedright}
-                \caption{Graphical representation of the process of motion modelling. On the left the initial data acquisition of both the data and the \gls{SS} can be seen. Then in the centre the data is taken and an registration is applied to it. Then on the right it can be seen that the \gls{SS} is taken again and a \gls{RCM} is fit on it and the \gls{DVF} from registration. In the top right a naive example of the \gls{2D} regression fit can be seen.} \label{fig:motion_modelling_motion_model}
+                \captionsetup{singlelinecheck=false}
+                \caption{
+                    Graphical representation of the process of motion modelling. On the left the initial data acquisition of both the data and the \gls{SS} can be seen. Then in the centre the data is taken and an registration is applied to it. Then on the right it can be seen that the \gls{SS} is taken again and a \gls{RCM} is fit on it and the \gls{DVF} from registration. In the top right a naive example of the \gls{2D} regression fit can be seen.
+                }
+                \label{fig:motion_modelling_motion_model}
             \end{figure}
             
             \glspl{MM} offer an alternative solution to motion correction when compared to vanilla co-registration of respiratory gated \gls{PET}. \glspl{MM}, similarly to the \gls{RPM} discussed in \Fref{sec:external_devices}, is a technique borrowed from radiotherapy. \glspl{MM} themselves attempt to relate the \glspl{DVF} or B-spline \gls{CPG} from, for instance, registration to the \gls{SS} acquired for the data used to generate the \glspl{DVF}. In this case a \gls*{RCM} would be generated which is fit on the \glspl{DVF} and \gls{SS}, this can be seen in~\Fref{fig:motion_modelling_motion_model}. In its simplest form a post registration \gls{MM} could be a linear regression of both the \glspl{DVF} and the \gls{SS}~\parencite{Kim1997MotionModel}. In the case described previously the \glspl{DVF} are found first before fitting the \gls{RCM}, however, in more recent research a method to simultaneously fit both the B-spline \gls{CPG} and the \gls{RCM} has been presented~\parencite{McClelland2013, McClelland2006, McClelland2014, McClelland2017}. \glspl{RCM} are discussed in more detail in~\Fref{sec:respiratory_correspondence_model}.
@@ -827,8 +952,11 @@
                             
                     \includegraphics[width=1.0\linewidth]{figures/background_rcm.png}
                             
-                    \captionsetup{singlelinecheck=false, justification=raggedright}
-                    \caption{Graphical representation of the types of \gls{RCM}. At the top of the figure is a \gls{SS} which has been discretised into specific values. On the bottom left is a linear \gls{RCM}, fit on a single \gls{SS}, showing how the points from the discretised \gls{SS} would be mapped to itself. On the bottom middle is a \gls{RCM} fit on \gls{SS} reflecting the phase of the respiration and on the bottom right is an \gls{RCM} where inhalation and exhalation are modelled separately using two \gls{RCM}.} \label{fig:motion_modelling_rcm}
+                    \captionsetup{singlelinecheck=false}
+                    \caption{
+                        Graphical representation of the types of \gls{RCM}. At the top of the figure is a \gls{SS} which has been discretised into specific values. On the bottom left is a linear \gls{RCM}, fit on a single \gls{SS}, showing how the points from the discretised \gls{SS} would be mapped to itself. On the bottom middle is a \gls{RCM} fit on \gls{SS} reflecting the phase of the respiration and on the bottom right is an \gls{RCM} where inhalation and exhalation are modelled separately using two \gls{RCM}.
+                    }
+                    \label{fig:motion_modelling_rcm}
                 \end{figure}
                 
                 The type of \gls{RCM} fit depends mostly upon the number and types of \gls{SS} given to the \gls{MM} algorithm and the number of models fit. Some of the different types of \gls{RCM} can be seen in~\Fref{fig:motion_modelling_rcm}. The most simple form of \gls{RCM} would be to fit a model using a single \gls{SS}, initially a \gls{SS} directly representing the amplitude of respiration, over time, could be given. A disadvantage of this approach would be that inhalation and exhalation are treated alike when in reality they differ, for instance the gradient of the \gls{SS} is not taken into account. To combat the disadvantage of the previous model a \gls{RCM} could be fit instead on the phase of respiration from the initial displacement \gls{SS}. A disadvantage of this type of \gls{RCM} is that it treats every breath as if it is exactly the same regardless of the max displacement of the breath. A final, more complex, \gls{RCM} is one where a separate model is fit for both the inhalation and exhalation portion of the data, this would mean that combined the \glspl{RCM} can model both inhalation and exhalation separately, meaning that both inter- and intra-respiratory variation can be maintained. However, moving from inhalation to exhalation may incur a 'jump' in the output from the \gls{RCM}~\parencite{McClelland2013}.
@@ -874,8 +1002,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_fully_connected.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:neural_network_architecture_fully_connected}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                         Graphical representation of . On the left .
+%                     }
+%                     \label{fig:neural_network_architecture_fully_connected}
 %                \end{figure}
                 
 %                \begin{figure}
@@ -883,8 +1014,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_cnn.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:neural_network_architecture_cnn}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                        Graphical representation of . On the left .
+%                    }
+%                    \label{fig:neural_network_architecture_cnn}
 %                \end{figure}
                 
 %                \begin{figure}
@@ -892,8 +1026,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_lstm.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:neural_network_architecture_lstm}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                        Graphical representation of . On the left .
+%                    }
+%                    \label{fig:neural_network_architecture_lstm}
 %                \end{figure}
                 
 %            \subsubsection{Activation Function} \label{sec:activation_function}
@@ -902,8 +1039,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_activation_functions.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:activation_function_activation_functions}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                        Graphical representation of . On the left .
+%                    }
+%                    \label{fig:activation_function_activation_functions}
 %                \end{figure}
                 
 %                \begin{figure}
@@ -911,8 +1051,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_selu.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:activation_function_selu}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                        Graphical representation of . On the left .
+%                    }
+%                    \label{fig:activation_function_selu}
 %                \end{figure}
             
 %            \subsubsection{Regularisation} \label{sec:regularisation}
@@ -921,8 +1064,11 @@
                             
 %                    \includegraphics[width=1.0\linewidth]{figures/background_dropout.png}
                             
-%                    \captionsetup{singlelinecheck=false, justification=raggedright}
-%                    \caption{Graphical representation of . On the left .} \label{fig:regularisation_dropout}
+%                    \captionsetup{singlelinecheck=false}
+%                    \caption{
+%                        Graphical representation of . On the left .
+%                    }
+%                    \label{fig:regularisation_dropout}
 %                \end{figure}
                 
         
