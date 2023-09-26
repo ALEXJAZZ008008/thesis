@@ -8,14 +8,14 @@
     
     \newpage
     
-    \longsection{Introduction}{sec:background_introduction}
+    \section{Introduction} \label{sec:background_introduction}
         This chapter of the thesis contains the background to the thesis and a literature review of the current state of the art methods which are to be expanded in later chapters. The first subsection of this chapter introduces a general background to the \gls{PET} scanner, the physics of its operation, its use and its combination with other medical imaging modalities.
         
         The second section of this chapter highlights inverse problems, in general, before the third section moves on to show how inverse problems are related to the reconstruction of \gls{PET} acquisition data into a volume representing changes in metabolic processes inside the body of the patient.
         
         The fourth section introduces the problem of respiratory motion in \gls{PET} and how this can have a significant negative impact on the volumes mentioned in the previous sections. the final section proposes methods to address the aforementioned challenge. For instance, the concepts of registration, \gls{SS} extraction, respiratory gating and motion modelling, which will be of paramount importance in the following chapters.
     
-    \longsection{PET}{sec:pet}
+    \section{PET} \label{sec:pet}
         % general intro
         The physics of \gls{PET} is introduced in this section. First a general overview of \gls{PET} is given, including what and how it images in basic terms and a general use of this clinically. This general overview is followed by a description of a \gls{PET} scan from the compounds which are administrated to the patient and detected by the scanner up to how these compounds break down in the patient and the interaction of the byproducts of this annihilation with matter. Along the way common clinical scanning procedures will be highlighted as well as issues related to the \gls{FOV} of the scanner and how these are approached when larger regions of a patient are to imaged.
             
@@ -502,7 +502,7 @@
                 Recently a method to jointly estimate both the activity and attenuation distributions from \gls{PET} data only has been proposed called \gls{MLAA}. This method attempts to reconstruct both distributions by iteratively estimating one distribution while keeping the other one fixed. This can be considered as at each step performing either emission or transmission tomography depending on the distribution being optimised for%. Alternatively, it is also possible to optimise jointly for both distributions in one step
                 ~\parencite{Fuin2017, Brusaferri2020JointPET}. A disadvantage of this solution is that without \gls{TOF} information it is a highly ill-posed problem and even with \gls{TOF} data the solution can only be found up to an arbitrary scaling factor. It is also possible for there to be significant cross talk artefacts between the activity and attenuation estimate~\parencite{MLAASalomonBib, MLAADefriseBib}. Additionally, optimising for the attenuation distribution increases the complexity and computational effort required of a reconstruction algorithm.
                 
-    \longsection{Inverse Problems and Optimisation}{sec:inverse_problems_and_optimisation}
+    \section{Inverse Problems and Optimisation} \label{sec:inverse_problems_and_optimisation}
         This section of the thesis introduces the concept of inverse problems. First a definition of an inverse problem is given, including where these may be applicable to the field of \gls{PET}. Next, the definition of an inverse problem is expanded upon by highlighting the difficulty of solving them literally and how this is usually overcome or addressed. The general form of an approach to solving an inverse problem is then given.
             
         The second subsection expands upon the approach given previously to solving inverse problems. Including defining what an optimisation is, applications of optimisation (for instance, \gls{PET} reconstruction) and listing the requirements of a simple optimisation problem. Next this subsection moves onto addressing the components of an optimisation, including the objective function. The purpose of an objective function in optimisation is presented before a number of common and robust similarity measures are introduced, the merits of different functions is discussed and common applications of specific instances is given. Regularisation is then briefly mentioned before moving onto the optimiser. As with the previous subsection here the purpose of an optimiser is initially introduced before families of optimisation algorithms are compared and variations of these families, as well as their applications, are touched upon. Finally bounds or constraints upon optimisation are mentioned, as well as providing examples of optimisers which can incorporate such functionality.
@@ -565,7 +565,7 @@
                 
                 An optimiser can also be provided with bounds or constraints, a simple bound would be a box bound where the values of the estimate cannot exceed a threshold. \gls{L-BFGS-B} is an implementation of \gls{L-BFGS} which accepts box bounds. This can be useful, for instance, in \gls{PET} reconstruction where it is not expected that negative values should exist, so they could be constrained.
             
-    \longsection{PET Image Reconstruction}{sec:pet_image_reconstruction}
+    \section{PET Image Reconstruction} \label{sec:pet_image_reconstruction}
         This section of the thesis follows on from the previous section in that it focuses on the inverse problem of \gls{PET} reconstructions specifically. First it shows how \gls{PET} reconstruction is an inverse problem, by likening aspects of the reconstruction problem to those presented previously, before elaborating on the two general families of reconstruction algorithm. Analytical and numerical approaches to \gls{PET} reconstruction are discussed and finally a common output scale from this process is highlighted.
             
         The second subsection expands upon the numerical approach (or optimisation) to \gls{PET} reconstruction given previously. Initially the advantages and disadvantages of iterative \gls{PET} reconstruction in general are introduced. Then common algorithms are described and their operation, advantages and disadvantages are compared. 
@@ -651,7 +651,7 @@
             subsets are used %KT even with 2 actually... %ACW done
             then  \gls{OSEM} will converge to a limit cycle around true convergence~\parencite{Mettivier2011}. If a reasonable number of subsets are used it has been found that \gls{OSEM} will accelerate \gls{MLEM} without affecting the accuracy of quantification too drastically~\parencite{Morey2013}. An example of an \gls{OSEM} reconstructed image can be seen in~\Fref{fig:iterative_image_reconstruction_osem_example}.
             
-    \longsection{Respiratory Motion in PET}{sec:respiratory_motion_in_pet}
+    \section{Respiratory Motion in PET} \label{sec:respiratory_motion_in_pet}
         % general intro
         This section of the thesis introduces the problem of respiratory motion in \gls{PET}/\gls{CT}. First it addresses how respiratory motion presents specifically in reconstructed \gls{PET} volumes and what this can mean for clinical diagnosis. Next the issue of respiratory motion in combined \gls{PET}/\gls{CT} is highlighted and the challenges associated with the misalignment of the data between modalities is touched on, including how this could negatively impact the \gls{AC} reconstructed \gls{PET} volume (issues introduced by the \gls{PET}/\gls{CT} workflow in the clinic are also presented).
             
@@ -704,7 +704,7 @@
                 \item Finally, a method where the reconstruction and motion parameters can be estimated simultaneously, directly from the \gls{PET} data, for one breath hold \gls{CT} \gls{Mu-Map} has been recently proposed~\parencite{JacobsonFesslerMotionCorrectionBib, Rezaei2018, Bousse2016a}. Here, the \gls{PET} data is split into the respiratory phases, as above. Then the method iterates between a reconstruction step (seen in~\Fref{sec:iterative_image_reconstruction}) and a motion parameter estimation step (seen in~\Fref{sec:image_registration}) where the same parameters are used to warp both the \gls{PET} data and the \gls{Mu-Map} for each respiratory position. Thus the \gls{Mu-Map} does not have to correspond to any one respiratory phase as each set of \gls{PET} data will be reconstructed at the position of the \gls{Mu-Map}. This method works especially well when \gls{TOF} data is available~\parencite{Bousse2016}. A disadvantage of this method is that it takes more computation than the above methods and that it has not been as extensively evaluated.
             \end{itemize}
     
-    \longsection{Motion Correction for PET}{sec:motion_correction_for_pet}
+    \section{Motion Correction for PET} \label{sec:motion_correction_for_pet}
         This section of the thesis concerns all things motion correction (specifically when applied to \gls{PET}). The first subsection introduces the concept of registration, initially highlighting its similarity to \gls{PET} reconstruction (in the sense that they are both optimisation problems) before moving on to discussing the classification of motion types and how they can be corrected. The first kinds of deformation, briefly mentioned, are rigid deformation and affine transformation then non-rigid deformations are introduced and classic approaches to alleviating them are highlighted, including parametric and nonparametric registration and methods of regularising them are touched on.
         
         The second subsection moves on to introduce the concept of respiratory gating, including both amplitude and phase gating before the third subsection which explains how the \glspl{SS}, which are used in respiratory gating, are acquired. Firstly methods incorporating external devices to extract \glspl{SS} are highlighted, including using the \gls{RPM}, then moving onto \gls{DD} methods. \gls{PCA} is explained as a dimensionality reduction technique and its use for acquiring \glspl{SS} directly from \gls{PET} acquisition data is provided.
@@ -990,7 +990,7 @@
                 \item Finally, there is a class of motion correction method similar to the iterative reconstruction and motion correction but different in that rather than independently optimising for both the motion estimation and reconstruction separately of one another they are optimised for all at once. This means the objective function of the optimisation is a combination of both the reconstruction and the motion estimation objective functions. This can be advantageous as it has been shown to give better results than optimising independently but it has the disadvantage that it introduces complexities related to the relative scale and direction of the independent terms~\parencite{Kalantari2016RespiratorySMEIR}.
             \end{itemize}
     
-%    \longsection{Machine Learning for PET}{sec:machine_learning_for_pet}
+%    \section{Machine Learning for PET} \label{sec:machine_learning_for_pet}
         
         
 %        \subsection{Machine Learning Concepts} \label{sec:machine_learning_concepts}

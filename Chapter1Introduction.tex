@@ -11,10 +11,10 @@
     
     \newpage
     
-    \longsection{Introduction}{sec:introduction_introduction}
+    \section{Introduction} \label{sec:introduction_introduction}
         An overview of the topics to be covered is given in this chapter in order to motivate the work performed, including introducing the data used, the potential problems anticipated to be encountered, reasons why this problem was chosen to be tackled and also a small insight into previous work performed in a similar vein, with more detail given in subsequent chapters. This chapter will then move onto covering the intended objectives of this work before outlining the further structure of this report.
     
-    \longsection{Motivation}{sec:motivation}
+    \section{Motivation} \label{sec:motivation}
         %KT for whatever reason the first PET isn't spelled-out. I'd force it to do that here(if you can)
         %ACW done
         \gls{PET}/\gls{CT} is a hybrid medical imaging modality which combines \gls{PET}, a functional imaging technique used to capture data related to the internal metabolic processes of a subject, with an anatomical imaging modality called \gls{CT}. Every year in the UK just over $150,000$ \gls{PET}/\gls{CT} scans are performed, the majority of these scans are used in the diagnosis and treatment of cancer~\parencite{NHSEngland2020Diagnostic2019/20}.
@@ -73,7 +73,7 @@
             The aim of this project is to formulate a method which produces \gls{PET}/\gls{CT} images which are corrected for respiratory motion and are automatically aligned between \gls{PET} and \gls{CT} data. This will be achieved through \gls{DDG} and motion modelling. %KT I'd replace IR with MM %ACW done
             This will be achieved with minimal impact on the patient and clinical environment, without increased dose and without increasing scanning time. Ideally the work flow of the method is that of one which is transparent to both the patient and the clinicians, increasing the likelihood of clinical adoption. Evaluation will be performed on simulated and patient data with a comparison to current academic and industry methods.
         
-    \longsection{Overview of this Thesis}{sec:overview_of_this_thesis}
+    \section{Overview of this Thesis} \label{sec:overview_of_this_thesis}
         % the first chapter gives an overview of the physics underlying the work, the second chapter presents some initial resulst. we then give an overview of the future plan in chapter 4. chapter 5 gives the main conclusions
         
         The overview of the physics underlying the work is given in the first chapter~\Fref{sec:background} of this thesis, first an introduction to the physics of \gls{PET}, including how the distribution of the radiotracer is quantified by the scanner, the different types of scans which can be performed in this manner, the problem of attenuation and why and how it is solved and the manner in which the quantified raw data is processed and output. This chapter then moves onto discussing the advantages of combined \gls{PET}/\gls{CT} scanners and the method through which the raw data from this are taken and processed in order to give an anatomical or functional image of the patient. Furthermore, the problem of motion is touched upon before introducing the ways in which it can be corrected for, including registration, respiratory gating and finally covering motion modelling.

@@ -1,17 +1,17 @@
 \chapter{Pseudo-Bayesian DIP Denoising as a Preprocessing Step for Kinetic Modelling in Dynamic PET} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix}
     \newpage
 
-    \longsection{Abstract}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_abstract}
+    \section{Abstract} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_abstract}
         Noise (among other artefacts) could be considered to be the bane of \gls{PET}. Often, it causes what could otherwise be a more simple problem to explode in complexity. Many methods have been proposed to alleviate the worst annoyances of noise, however, not many take into account the temporal nature of dynamically acquired \gls{PET}. Here, we propose an adaption of a method, which has seen increasing attention in more traditional imaging denoising circles. \gls{DIP} exploits the initialisation of a carefully designed \gls{NN}, so as to treat it as a bank of custom filters, which are to be trained and used afresh on each new image, independently. \gls{DIP} has seen adaptation to \gls{PET} previously (including dynamic \gls{PET}), however, many of these adaptations do not take into account the large memory requirements of the method. Additionally, most previous work does not address the main weakness of the \gls{DIP}, its stopping criteria. Here, we propose a method which is both memory efficient, and includes a smoothing regularisation. In addition, we provide uncertainty estimates by incorporating a Bayesian approximation (using dropout), and prototype a training scheme by which the model is fit on all data simultaneously. The denoised images are then used as input for kinetic modelling. To evaluate the method, dynamic \gls{XCAT} simulations have been produced, with a \gls{FOV} of the lung and liver. The results of the new methods (along with \gls{TV} and the old \gls{DIP}) have been compared by a visual analysis, \gls{SSIM}, and $K_i$ values. Results indicate that the new methods potentially outperform the old methods, without increasing computation time, while reducing system requirements.
 
-    \longsection{Introduction}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_introduction}
+    \section{Introduction} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_introduction}
         Most machine learning or \gls{NN} based methods, rely upon a workflow where a model is designed, trained, validated, and deployed~\parencite{Krose1993AnNetworks}. This is logical as the intention with \gls{NN} based methods is to treat them as a general function approximator~\parencite{Krose1993AnNetworks}. This is where the function is determined by the relationship between the data used and the objective or loss function. However, in the domain of image denoising, the \gls{DIP} method has received attention as training and inference are performed independently on each new image~\parencite{Ulyanov2020DeepPrior}. The \gls{DIP} method could be considered to be a custom learnt bank of filters for each input. In order to prevent overfitting, the number of iterations used is imperative. The authors of the original \gls{DIP} paper argue that the method could be considered to be used to solve many inverse problems~\parencite{Ulyanov2020DeepPrior}.
         
         For \gls{PET}, there have been a number of adaptations of \gls{DIP}.~\parencite{Gong2019PETPrior} used a U-Net with relatively high count/low motion brain scans~\parencite{Weng2021INet:Segmentation}. In~\parencite{Hashimoto20214DNetwork} \gls{DIP} is extended to \gls{4D} dynamic \gls{PET}. To do this, multiple output branches are grafted onto the \gls{NN}, one for each dynamic time point.~\parencite{Hashimoto2019DynamicDatasets} uses the original or static \gls{PET} acquisition as input to the \gls{NN}, rather than noise.~\parencite{Yang2022SimultaneousPrior} represents a more recent extension, where multiple \glspl{NN} are used simultaneously.
         
         This work seeks to extend or simplify previous work, in order to denoise \gls{4D} dynamic \gls{PET} data.
     
-    \longsection{Methods}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods}
+    \section{Methods} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods}
         \subsection{Network Design and Execution} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_methods_network_design_and_execution}
             \begin{figure}
                 \centering
@@ -84,7 +84,7 @@
             
             Comparisons used included: A visual analysis, \gls{SSIM} to the ground truth~\parencite{Wang2009MeanMeasures}, $K_i$ values, a \gls{TAC} through a lesion, a profile over a lesion, and \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak} (defined following \gls{EANM} guidelines~\parencite{Boellaard2015FDG2.0}).
     
-    \longsection{Results}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_results}
+    \section{Results} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_results}
         \begin{figure}
             \centering
             
@@ -173,7 +173,7 @@
         \gls{SUV} (and \gls{SSIM}) results confirm the above (see~\Fref{tab:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_results_suv}).
         % \gls{SSIM} results confirm the above.
     
-    \longsection{Discussion and Conclusions}{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_discussion_and_conclusions}
+    \section{Discussion and Conclusions} \label{sec:pseudo_bayesian_dip_denoising_as_a_preprocessing_step_for_kinetic_modelling_in_dynamic_pet_appendix_discussion_and_conclusions}
         % XXXSome discussion of results here.
     
         Evaluation indicated that the new \gls{DIP} method, particularly when trained combined, provided images with less noise and more quantitative accuracy than other methods. The combined method had lower uncertainty.

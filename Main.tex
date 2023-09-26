@@ -53,6 +53,13 @@
 %  mphil
 \documentclass[12pt, phd, a4paper, oneside]{ucl_thesis}
 
+\usepackage{titlesec}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 % Package configuration:
 %  LaTeX uses "packages" to add extra commands and features.
 %  There are quite a few useful ones, so we've put them in a 
@@ -74,12 +81,12 @@
 %\input{BibSettings}   % For bibliographies
 
 % Title Settings
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
-\usepackage[top=6.0cm, bottom=1.25cm, left=6.5cm, right=0.5cm, headheight=1.0cm]{geometry}
+\usepackage[top=6.0cm, bottom=1.25cm, left=6.5cm, right=0.5cm, headheight=2.0cm]{geometry}
 
-\usepackage[activate={true, nocompatibility}, final, tracking=true, kerning=true, spacing=true, factor=1100, stretch=10, shrink=10]{microtype}
+\usepackage[activate={true, nocompatibility}, final, tracking=true, kerning=true, spacing=false, factor=1100, stretch=10, shrink=10]{microtype}
 \microtypecontext{spacing=nonfrench}
 
 \input{glossary}
@@ -88,18 +95,11 @@
 
 \usepackage{fancyref}
 \usepackage{fancyhdr}
-
-\newcommand{\longtitle}[1]
-{%
-    \protect\parbox[.]{0.9\linewidth}{\strut #1 \strut}\hfill\vspace*{1.0cm}%
-}
-
-\newcommand{\longsection}[2]
-{%
-    \section[#1]{#1%
-    \sectionmark{\longtitle{#1}}} \label{#2}%
-    \sectionmark{\longtitle{#1}}%
-}
+\usepackage{ragged2e}
+\fancyhead{}
+\lhead{\parbox[t]{0.5\textwidth}{\footnotesize\RaggedRight\nouppercase{\rightmark}\strut}}
+\rhead{\parbox[t]{0.5\textwidth}{\footnotesize\RaggedLeft\nouppercase{\leftmark}\strut}}
+\pagestyle{fancy}
 
 \newcommand{\rmd}
 {%
@@ -145,7 +145,6 @@
     
     % At last, content! Remember filenames are case-sensitive and 
     %  *must not* include spaces.
-    \setstretch{2.0}
     
     \glsresetall
     \include{Preamble}
