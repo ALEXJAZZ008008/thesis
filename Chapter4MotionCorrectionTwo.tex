@@ -12,7 +12,7 @@
         
     
     \section{PET/CT Motion Correction Exploiting Motion Models Fit on Coarsely Gated Data Applied to Finely Gated Data} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}
-
+        This section investigates the impact of gating coarseness on motion correction performance, with respect to the noise present in each gate. Furthermore, this section introduces a motion correction method which uses \gls{MLACF} reconstructions as part of the \gls{MM} fitting. \gls{MLACF} is used in contrast to previous work where \gls{OSEM} was used for the same purpose, as seen in~\Fref{sec:initial_motion_correction_using_basic_reconstruction_and_gating_methods_with_less_challenging_data}.
 
         \subsection{Introduction} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_introduction}
             Motion correction is imperative to the reduction of blurring and artefacts inherent in \gls{PET}. This is due to the relatively long acquisition time, and the temporal difference in the \gls{Mu-Map} acquisition. Registration literature contains many examples of spatial regularisers, however there are few temporal regularisers. \glspl{MM} can act as such a temporal regulariser, as well as allowing for the interpolation of unseen motion correction results. In previous work, A motion modelling approach to high \gls{TOF} resolution \gls{NAC} data was applied. Where the data was corrected to the space of the \gls{Mu-Map}. However, this approach was challenging, especially when low contrast lung tumours are present. This work seeks to extend previous work, by incorporating an approach suggested by~\parencite{Lu2018RespiratoryData}, to perform an initial \gls{MLACF} reconstruction for the motion estimation. In this work, these two approaches are combined, with several improvements. \gls{Mu-Map} alignment, as well as, fitting the \gls{MM} on low noise low temporal/gate resolution data, and applying it to high noise high temporal/gate resolution data.% To test this, \gls{XCAT} volumes are constructed, and \gls{TOF} data simulated. Evaluation compares the results of the proposed method against, where the \gls{MM} was fit on data gated more finely, where the \gls{MM} was fit on noiseless data, and finally non-motion corrected examples. Results indicate that the incorporation of \gls{MLACF}, and fitting of the \gls{MM} on low noise low temporal/gate resolution data, improves contrast and quantification, while allowing for a relatively fast execution time.
@@ -24,9 +24,9 @@
             A method incorporating \glspl{MM} for dynamic \gls{PET}/\gls{CT}, was proposed in~\parencite{Chan2018Non-RigidPET}. Additionally, a method incorporating \gls{MLACF} for \gls{PET}/\gls{CT}, was proposed in~\parencite{Lu2018RespiratoryData}. The work presented here, differentiates itself, not only by the ways mentioned above, but also by using a \gls{2D} \gls{SS} (rather than a \gls{1D} \gls{SS}). Thus allowing more general parametrisation of the motion (here in terms of both displacement and velocity). Additionally, the group-wise method, presented here, makes use of an iterative motion correction algorithm, rather than relying only on a pair-wise method.
         
         \subsection{Methods} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods}
-            \gls{AC} volumes are reconstructed using \gls{MLACF} (both `phase' gated into $4$ and amplitude gated into $30$ bins), as seen in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_xcat_volume_generation}, ~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}, and~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mlacf_image_reconstruction}. These volumes are used as input for registration (both pair- and group-wise) and \gls{MM} estimation, as seen in~\Fref{sec:comparison_of_motion_correction_methods_incorporating_motion_modelling_for_pet_ct_using_a_single_breath_hold_attenuation_map_registration} and~\Fref{sec:comparison_of_motion_correction_methods_incorporating_motion_modelling_for_pet_ct_using_a_single_breath_hold_attenuation_map_motion_model_estimation}. The reference \gls{PET} volume, from the previous step, is then registers to a single \gls{Mu-Map}, at end inhalation. The resultant \gls{MM} and its inverse are used to perform a motion compensated \gls{AC} reconstruction, as seen in~\Fref{sec:pet_ct_respiratory_motion_correction_with_a_single_attenuation_map_using_nac_derived_deformation_fields_methods_attenuation_map_warping} and~\Fref{sec:pet_ct_respiratory_motion_correction_with_a_single_attenuation_map_using_nac_derived_deformation_fields_methods_attenuation_map_warping}. Following on from this an additional motion estimation and correction cycle is performed, as seen in~\Fref{sec:comparison_of_motion_correction_methods_incorporating_motion_modelling_for_pet_ct_using_a_single_breath_hold_attenuation_map_evaluation}.
+            \gls{AC} volumes are reconstructed using \gls{MLACF} (both `phase' gated into four and amplitude gated into $30$ bins), as seen in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_xcat_volume_generation}, ~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}, and~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mlacf_image_reconstruction}. These volumes are used as input for group-wise registration and \gls{MM} estimation, as seen in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration} and~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}. The reference \gls{PET} volume, from the previous step, is then registered to a single \gls{Mu-Map}, at end inhalation. The resultant \gls{MM} and its inverse are used to perform a motion compensated \gls{AC} reconstruction, as seen in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mc_image_reconstruction_with_ac}.
             
-            For validation, \gls{XCAT} simulations are used, for one bed position, with a \gls{FOV} including the base of the lungs and the diaphragm. The output for pair- and group-wise registration (both with and without an additional \gls{MM} fitting step) is evaluated against a non-motion corrected reconstruction of the same data (using a single static \gls{Mu-Map} and a \gls{Mu-Map} averages from \gls{CCT} for attenuation correction) both visually, using a profile, as well as with \gls{SUV} analysis, seen in~\Fref{sec:pet_ct_respiratory_motion_correction_with_a_single_attenuation_map_using_nac_derived_deformation_fields_methods_evaluation}.
+            For validation, \gls{XCAT} simulations are used, for one bed position, with a \gls{FOV} including the base of the lungs and the diaphragm. The output for data `phase' gated into four and amplitude gated into $30$ bins is evaluated against the following. Firstly, the above procedure was additionally performed (for both data `phase' gated into four and amplitude gated into $30$ bins) where the registration and \gls{MM} fitting was performed on noiseless data. Secondly, a non-motion corrected reconstruction of the same data (using a single static \gls{Mu-Map} and a \gls{Mu-Map} averages from \gls{CCT} for attenuation correction). Evaluations performed included a visual analysis, an examination of profile, and \gls{SUV} analysis, seen in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_evaluation}.
             
             \subsubsection{XCAT Volume Generation} \label{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_xcat_volume_generation}
                 \gls{XCAT}~\parencite{Segars2010} was used to generate $480$ volumes over a \SI{240}{\second} period, using respiratory traces, derived from \gls{2D} \gls{CMR} patient data. The maximum displacement of \gls{AP} and \gls{SI} motion, was set to \SI{1.2}{\centi\metre} and \SI{2.0}{\centi\metre} respectively. Activity concentrations were derived from a static \gls{18F-FDG} patient scan. The \gls{FOV} included the base of the lungs, diaphragm, and the top of the liver. A \SI{20}{\milli\metre} diameter spherical lesion (smaller than the max displacement due to respiratory motion) was placed into the base of the right lung (within the maximum displacement due to respiratory motion of the diaphragm).
@@ -129,19 +129,45 @@
             
             In the future, work will focus on evaluating the method on patient data.
 
-    \section{Test} \label{sec:test}
+    \section{Evaluation of PET/CT Motion Correction Incorporating Motion Models Using MLACF and Complex Gating Schemes} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes}
+        This section shows work performed in order to prepare the methods presented before for use with patient data. This section also presents the benefits of using \gls{MLACF} during motion correction as well as an argument for \gls{2D} gating.
 
-
-        \subsection{Introduction} \label{sec:test_introduction}
-            
+        \subsection{Introduction} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_introduction}
+            This work functions as a companion piece to~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}. The methods presented here do not differ significantly from those presented before. Where not otherwise mentioned it can be assumed that the methods presented here followed~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}. However, there were large strides made to prepare the method for use with patient data. These include making the data as similar to the patient data as possible, as well as testing but not evaluating the method using patient data. Other than this, some improvements to the general implementation of the method are also presented. For instance, \gls{MLACF} was made more robust and stable, compared to what was used in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}. Additionally, the parameters of the method were optimised using a grid search. Furthermore, an evaluation of the impact of including \gls{MLACF} and \gls{2D} \glspl{SS} is provided here.
         
-        \subsection{Methods} \label{sec:test_methods}
+        \subsection{Methods} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_methods}
             
             
-            \subsubsection{Evaluation} \label{sec:test_methods_evaluation}
+            \subsubsection{XCAT Volume Generation and PET Acquisition Simulation} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_methods_xcat_volume_generation_and_pet_acquisition_simulation}
+                \gls{XCAT} volumes were acquired in the same way as in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_xcat_volume_generation}.
+
+                \gls{PET} acquisitions were simulated (and reconstructed) in a similar way as in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}. However here, a great deal of care was taken to ensure the data was as similar to that which would be acquired from a \gls{GE} Discovery $710$ as possible. Count levels were made to match exactly a research study, which used the \gls{GE} Discovery $710$. Pseudo-randoms and scatter were added in a similar way as in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}. However, their profile was made to match exactly the profile of randoms and scatter from the same research study as the counts. Furthermore, for the first time \gls{3D} acquisition data was used rather than \gls{2D}. Other than the obvious reasons for taking such care to match real patient \gls{GE} Discovery $710$ data, another reason is that if the simulations match this data then the step from simulations to using this patient data directly will be less.
+                
+                A respiratory \gls{SS} was generated using \gls{PCA}~\parencite{Thielemans2011}. The value of this signal, and its gradient, was used for gating (where appropriate). Multiple gating schemes were used for \gls{MM} estimation. %data were initially pseudo-phase gated. The data was displacement and gradient gated into four bins, where each bin was a quadrant centred on the maximum or minimum of the displacement or gradient.
+                
+            \subsubsection{MLACF Image Reconstruction} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_methods_mlacf_image_reconstruction}
+                %Data were reconstructed using \gls{MLACF}, with seven full iterations and $24$ subsets for the activity update, and nine iterations for the attenuation update~\parencite{Nuyts2012ML-reconstructionFactors}. \gls{MLACF} was initialised using one iteration of \gls{MLEM}, where the breath hold \gls{CT} was used for attenuation correction (the \gls{ACF} were still initialised with all ones), this gave a small improvement to results without introducing bias. Between iterations, the activity volume and \gls{ACF} sinogram were normalised (scaled to the same magnitude as an equivalent volume/sinogram filled with ones), and a small value was added to each voxel, this was to aid with stabilising the reconstruction. A quadratic prior was included in the reconstruction, to promote smoothness of the \gls{ACF} sinogram.
+            
+            \subsubsection{Registration, Motion Model Estimation, and Motion Corrected Image Reconstruction with Attenuation Correction} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_methods_registration_motion_model_estimation_and_motion_corrected_image_reconstruction_with_attenuation_correction}
+                %Before being registered, each volume underwent pre-processing, including replication of end-slices, smoothing, and standardisation. This pre-processing was only applied to intermediate data, and was not used for the final output of the method.
+                
+                %Group-wise registration was used, where after an initial pair-wise registration step, a new reference volume was resampled. Registration to the new reference volume, followed by another resample, continued for a set number of iterations. NiftyReg~\parencite{Modat2010} was used to perform registrations, using a diffeomorphic velocity field B-spline parameterisation. \gls{CPG} spacing of the B-spline coefficients, bending energy regularisation term weight, and number of iterations were tuned using a grid search.
+                
+                %Between each iteration, the resampled volume was registered to the position of the \gls{Mu-Map}. The \glspl{DVF} for both the group-wise registration, and \gls{Mu-Map} registration were composed together to form one final \gls{DVF}. With the diffeomorphic nature of the registration this would give a \gls{MM} which could generate \glspl{DVF} to and from the gates to the \gls{Mu-Map}.
+                
+                %\glspl{MM} were fit as a direct \gls{RCM} on the \glspl{CPG}, from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration} and the \gls{SS} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_pet_acquisition_simulation}. A weighted linear regression was used, where the weighting was taken based on the number of counts in each gate. Once a \gls{MM} was fit, new \glspl{DVF} were generated for each gate, using the \gls{SS} values that were used to fit the \gls{MM}. \gls{MM} fitting occurred between iterations, the \glspl{DVF} generated by the \gls{MM} were used to resample the new target volume at each iteration.
+
+                %Data were re-gated, using the value of \gls{SS}, and its gradient, to gate data into $30$ respiratory bins ($10$ displacement and $3$ gradient bins).
+                
+                %Data were re-reconstructed with attenuation correction, deforming the \glspl{Mu-Map}, using the inverse of the \glspl{DVF} determined using the \gls{MM} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}. For reconstruction, \gls{OSEM} was used, with two full iterations and $24$ subsets (as in clinical practice)~\parencite{Hudson1994}. Motion correction was then applied, using \glspl{DVF} determined using the \gls{MM} from~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation}. Volumes were post-filtered using a Gaussian smoothing, with a \gls{FWHM} of \SI{6.4}{\milli\metre} in the transverse plane, and a normal Z-filter (as in clinical practice).
+            
+            \subsubsection{Evaluation} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_methods_evaluation}
+                %In addition to the reconstructions performed in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_mc_image_reconstruction_with_ac}, motion correction was also applied to data in the same way, as in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_registration} and~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data_methods_motion_model_estimation} but using high noise, high temporal/gate resolution, or noiseless data, for the \gls{MM} fitting. Furthermore, data were also reconstructed without motion correction, using either the end inhalation \gls{Mu-Map}, or a sum of all \glspl{Mu-Map} (to emulate an \gls{AV-CCT}). For the present evaluation, the volumes without motion correction were registered to the position of the end inhalation \gls{Mu-Map}. Additionally, \glspl{DVF} generated by each method were also applied to the original \gls{XCAT} volumes, for visual analysis.
+                
+                %Comparisons used included a visual analysis, \gls{SSIM} to the ground truth~\parencite{Wang2009MeanMeasures}, a profile over the lesion, and \gls{SUV}\textsubscript{max} and \gls{SUV}\textsubscript{peak} (defined following \gls{EANM} guidelines~\parencite{Boellaard2015FDG2.0}).
                 
         
-        \subsection{Results} \label{sec:test_results}
+        \subsection{Results} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results}
             \begin{figure}
                 \centering
                 
@@ -149,10 +175,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. `Phase' gated and \gls{MLACF} reconstructed data with three, four, eight and $12$ bins respectively. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_phase_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -162,10 +188,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_5_amplitude_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -175,10 +201,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}. Here, in the \gls{2D} case a \gls{2D} \gls{SS} was used and in the \gls{1D} case a \gls{1D} \gls{SS} was used. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_1d_vs_2d_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -188,10 +214,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with $30$ bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_30_amplitude_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -201,10 +227,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The methods presented here are a combination of the best one method from~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_visual_analysis}, ~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_visual_analysis}, and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_visual_analysis}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_best_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_visual_analysis}
             \end{figure}
             
             \begin{figure}
@@ -214,10 +240,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. `Phase' gated and \gls{MLACF} reconstructed data with three, four, eight and $12$ bins respectively. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Here, results are shown applied to volumes without noise. This is due to it potentially being easier to see smaller differences between motion correction methods when noise is removed. However, noise is still used during the motion correction process. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_noiseless_phase_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_phase_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -227,10 +253,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Here, results are shown applied to volumes without noise. This is due to it potentially being easier to see smaller differences between motion correction methods when noise is removed. However, noise is still used during the motion correction process. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_noiseless_5_amplitude_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_5_amplitude_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -240,10 +266,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}. Here, in the \gls{2D} case a \gls{2D} \gls{SS} was used and in the \gls{1D} case a \gls{1D} \gls{SS} was used. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Here, results are shown applied to volumes without noise. This is due to it potentially being easier to see smaller differences between motion correction methods when noise is removed. However, noise is still used during the motion correction process. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_noiseless_1d_vs_2d_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_1d_vs_2d_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -253,10 +279,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with $30$ bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction. Here, results are shown applied to volumes without noise. This is due to it potentially being easier to see smaller differences between motion correction methods when noise is removed. However, noise is still used during the motion correction process. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_noiseless_30_amplitude_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_30_amplitude_visual_analysis}
             \end{figure}
 
             \begin{figure}
@@ -266,10 +292,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    \gls{AC} motion corrected reconstructions (plus \gls{PIQE}). This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The methods presented here are a combination of the best one method from~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_phase_visual_analysis}, ~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_5_amplitude_visual_analysis}, and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_30_amplitude_visual_analysis}. Here, results are shown applied to volumes without noise. This is due to it potentially being easier to see smaller differences between motion correction methods when noise is removed. However, noise is still used during the motion correction process. Colour map ranges are consistent for all images in each row.
                 }
                 
-                \label{fig:test_noiseless_best_visual_analysis}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_best_visual_analysis}
             \end{figure}
             
             \begin{figure}
@@ -279,10 +305,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing. This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. `Phase' gated and \gls{MLACF} reconstructed data with three, four, eight and $12$ bins respectively. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
-                \label{fig:test_phase_profile}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_profile}
             \end{figure}
 
             \begin{figure}
@@ -292,10 +318,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing. This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
-                \label{fig:test_5_amplitude_profile}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_profile}
             \end{figure}
 
             \begin{figure}
@@ -305,10 +331,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing. This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with five bins reconstructed using \gls{MLACF}. Here, in the \gls{2D} case a \gls{2D} \gls{SS} was used and in the \gls{1D} case a \gls{1D} \gls{SS} was used. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
-                \label{fig:test_1d_vs_2d_profile}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_profile}
             \end{figure}
 
             \begin{figure}
@@ -318,10 +344,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing. This is where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. Amplitude gated data with $30$ bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
-                \label{fig:test_30_amplitude_profile}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_profile}
             \end{figure}
 
             \begin{figure}
@@ -331,10 +357,10 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    A profile through the lesion, in the \gls{SI} direction, summed over a window in the \gls{AP} and \gls{LM} directions, with median smoothing. The methods presented here are a combination of the best one method from~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_profile}, ~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_profile}, and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_profile}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
-                \label{fig:test_best_profile}
+                \label{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_profile}
             \end{figure}
             
             \begin{table}
@@ -342,7 +368,7 @@
                 
                 \captionsetup{singlelinecheck=false}
                 \caption{
-                    test
+                    Comparison of \gls{SUV}\textsubscript{max}, \gls{SUV}\textsubscript{median}, and \gls{SUV}\textsubscript{peak}. This is for where different data was used to fit the \gls{MM} and the \gls{MM} was applied to $30$ gate binned data. The data used to fit the \gls{MM} was as follows. `Phase' gated and \gls{MLACF} reconstructed data with three, four, eight and $12$ bins respectively. Amplitude gated data with five bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM} (Here, in the \gls{2D} case a \gls{2D} \gls{SS} was used and in the \gls{1D} case a \gls{1D} \gls{SS} was used.). Amplitude gated data with $30$ bins reconstructed using \gls{MLACF}, \gls{AC} \gls{OSEM}, and \gls{NAC} \gls{OSEM}. A \gls{MM} was also fit using a single bin, this is practically the equivalent of doing no motion correction.
                 }
                 
                 \resizebox*{1.0\linewidth}{!}
@@ -370,13 +396,59 @@
                         \hline
                     \end{tabular}
                 }
-                \label{tab:test_suv}
+                \label{tab:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_suv}
             \end{table}
             
-            
+            A visual analysis of the `phase' gated results with noise can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_visual_analysis} and without noise in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_phase_visual_analysis}. A visual analysis of the amplitude gated results using five bins with noise can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_visual_analysis} and without noise in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_5_amplitude_visual_analysis}. A visual analysis of the difference between the amplitude gated results with five bins using a \gls{2D} and a \gls{1D} \gls{SS} with noise can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_visual_analysis} and without noise in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_1d_vs_2d_visual_analysis}. A visual analysis of the amplitude gated results using $30$ bins with noise can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_visual_analysis} and without noise in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_30_amplitude_visual_analysis}. A visual analysis of the best results from the previous analysis with noise can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_visual_analysis} and without noise in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_best_visual_analysis}.
 
-        \subsection{Conclusion} \label{sec:test_conclusion}
+            A profile across the lesion for the `phase' gated results can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_profile}. A profile across the lesion for the amplitude gated results using five bins can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_profile}. A profile across the lesion showing the difference between the amplitude gated results with five bins using a \gls{2D} and a \gls{1D} \gls{SS} can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_profile}. A profile across the lesion for the amplitude gated results using $30$ bins can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_profile}. A profile across the lesion showing best results from the previous profiles can be seen in~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_profile}.
+
+            \gls{SUV}\textsubscript{max}, \gls{SUV}\textsubscript{median}, and \gls{SUV}\textsubscript{peak} results can be seen for all methods in~\Fref{tab:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_suv}
+
+            An evaluation of the visual analysis for each figure shows the following.
+
+            \begin{itemize}
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_visual_analysis} and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_phase_visual_analysis} it can be seen that the `phase' based gating approaches using \gls{MLACF} universally provide high quality results. The lesion can be seen more homogeneous and circular in all motion corrected results than the non-motion corrected result. The Three Phase and Four Phase results are comparable and superior to the Eight Phase and Twelve Phase results. From what was observed in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data} it is to be expected that with fewer gates comes a better performing motion correction method. However, the reduction in clarity of the lesion and diaphragm is obvious but less than may be expected when compared to where $30$ gates are used. The \gls{PIQE} results support this, the values for the Three Phase and Four Phase methods are greater than the Eight Phase and Twelve Phase methods. The \gls{PIQE} calues for the Three Phase and Four Phase are also greater than where no motion correction is used and are closest to the ground truth \gls{PIQE} values.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_visual_analysis} and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_5_amplitude_visual_analysis} it can be seen that \gls{MLACF} (when used with amplitude gating of five bins) significantly improves results when compared to \gls{AC} and \gls{NAC} \gls{OSEM}. The lesion in the \gls{MLACF} example is comparable to the lesions seen in the `phase' based results. However, for both the \gls{AC} and \gls{NAC} \gls{OSEM} results the lesion does not appear in the same location as in the ground truth and also appears very non-homogenous. The results from both \gls{OSEM} methods actually appreas to be worse than doing no motion correction at all. The \gls{PIQE} values somewhat support this, however \gls{PIQE} appears to have erroneously scored the \gls{NAC} \gls{OSEM} results highly. This erroneous scoring could be attributed to this image being smoother and thus potentially more perceptually pleasing.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_visual_analysis} and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_1d_vs_2d_visual_analysis} it could be hypothesised that a \gls{2D} \gls{SS} is detrimental to motion correction when compared to a \gls{1D} \gls{SS}. However, it is more likely here that the results for the \gls{2D} \gls{SS} are caused by a lack of constraint along the gradient dimension. A \gls{2D} \gls{SS} is used for all `phase' based methods, which show good results. The \gls{PIQE} results support this, the values for the \gls{2D} \gls{SS} are very low.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_visual_analysis} and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_30_amplitude_visual_analysis} it can be seen that all methods which utilised $30$ bins have failed. This supports the results shown in~\Fref{sec:pet_ct_motion_correction_exploiting_motion_models_fit_on_coarsely_gated_data_applied_to_finely_gated_data}. As with the \gls{PIQE} values for the five bin methods the \gls{PIQE} values here are suspiciously high. This again could potentially be caused by the smoothness of the images where motion correction has failed.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_visual_analysis} and~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_noiseless_best_visual_analysis} it can be seen that the Four Phase and Five Amplitude methods perform relatively comparably (and significantly better than the Thirty Amplitude results where motion correction has failed). The lesion and diaphragm in the Four Phase and Five Amplitude cases both show a significant improvement over where no motion correction is used. The Four Phase and Five Amplitude methods both contain a lesion in the same location and of a similar shape when compared to the ground truth. The results here potentially lead to the conclusion that, with the data used here, it is more important to use fewer bins when gating than it is important to use a \gls{2D} \gls{SS}. \gls{PIQE} values appear potentially inconclusive here when the values from the Thirty Amplitude method are taken into account.
+            \end{itemize}
+
+            An evaluation of the profiles for each figure shows the following.
+
+            \begin{itemize}
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_phase_profile} again it can be seen that the Three Phase and Four Phase methods provide profiles with the highest peaks and which most closely match the ground truth. Here, when compared to the visual analysis, it is more obvious the degradation in quality as the number of bins used increases. The Twelve Phase method has a much lower peak which is shifted to the left.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_5_amplitude_profile} it can be seen that the \gls{MLACF} based method provides an exceptional profile. Here the \gls{MLACF} based method has a profile where the peak almost exactly matches the ground truth. However, the width of the peak for the \gls{MLACF} method is much greater than the ground truth. The other methods shown here appear to have completely failed, their peak is heavily shifted to the right and is much lower than the \gls{MLACF} based method.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_1d_vs_2d_profile} it can be seen that the \gls{2D} \gls{SS} method has failed. Although the peak of the \gls{2D} \gls{SS} method is in the same place as in the ground truth, there is an additional erroneous peak to the right of this.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_30_amplitude_profile} it can be seen that all methods utilising a large number of bins have failed entirely. If there is a peak in the profile then it does not match at all the scale or location of the ground truth.
+
+                \item From~\Fref{fig:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_best_profile} it can be seen that the Four Phase and Five Amplitude methods provide very similar profiles. Although the peak of the Five Amplitude method may be greater than the peak of the Four Phase method it is also true that the width of the peak for the Four Phase method is less than that of fthe Five Amplitude method. Additionally, the Four Phase method very slightly matches the ground truth more closely outside the peak. For instance, where the diaphragm is.
+            \end{itemize}
+
+            An analysis of \gls{SUV}, shown in~\Fref{tab:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_results_suv}, results shows the following.
+
+            \begin{itemize}
+                \item For \gls{SUV}\textsubscript{max} results, the Three Phase and Five Amplitude (using \gls{MLACF}) methods have values which most closely match the ground truth when compared to other methods. All Thirty Gate and \gls{OSEM} methods have a very low \gls{SUV}\textsubscript{max} value. Strangely the Four Phase method has a lower \gls{SUV}\textsubscript{max} than the Eight Phase and Twelve Phase methods. This could be attributed to the fact that \gls{SUV}\textsubscript{max} is very susceptible to noise.
+
+                \item For \gls{SUV}\textsubscript{median} results, the Three Phase and Four Phase methods have exceptionally high values. These values are even higher than the ground truth, potentially leading to the conclusion that the `phase' based methods have shrunk the size of the lesion when compared to the ground truth. The Five Amplitude (using \gls{MLACF}) has a lower \gls{SUV}\textsubscript{median} but one which is close to the ground truth.
+
+                \item For \gls{SUV}\textsubscript{peak} results, the Five Amplitude (using \gls{MLACF}) has a very good score which is closest to the ground truth. The Three Phase and Four Phase methods have values which are very close to each other but which lags behind the Five amplitude (using \gls{MLACF}) method.
+            \end{itemize}
+
+        \subsection{Conclusion} \label{sec:evaluation_of_pet_ct_motion_correction_incorporating_motion_models_using_mlacf_and_complex_gating_schemes_conclusion}
+            In conclusion, after a thorough analysis of the results both visually, of their profile through the lesion, and of their \gls{SUV}, it can be shown that the Four Phase and Five Amplitude (using \gls{MLACF}) methods most often provide the best results. The Four Phase method had a narrower peak in the profile (closer to the ground truth) and more closely matched values outside of the lesion. However, the Five Amplitude (using \gls{MLACF}) method had a greater peak in the profile (closer to the ground truth) and more often had superior \gls{SUV}. Although this is the case it should be noted that both methods significantly outperformed other methods. For instance, all \gls{OSEM} and all methods with a large number of bins unanimously failed.
             
+            When compared to the methods which failed it is more interesting to highlight what the two best methods share in common rather than what separates them. The two best methods both used \gls{MLACF} and a small number of bins. It appears from experiments here, but also when comparing~\Fref{sec:subsequent_motion_correction_using_advanced_reconstruction_and_gating_methods_with_more_challenging_data} and~\Fref{sec:initial_motion_correction_using_basic_reconstruction_and_gating_methods_with_less_challenging_data}, that when low count data is used \gls{MLACF} is almost a necessity for accurate motion correction. Furthermore, the fact that a low number of bins is beneficial when applying motion correction shows a benefit for \glspl{MM}. This is because using a low number of bins for motion correction but then applying this motion correction to a high number of bins would not be possible without motion modelling.
+            
+            However, when it comes to the benefits of \gls{2D} gating, it could be argued that results here are inconclusive. This could be due to the fact that rationally modelling hysteresis is more beneficial than not modelling it. It could be argued that the simulated data used here was not complex enough to show this.
         
     \section{Discussion} \label{sec:subsequent_motion_correction_using_advanced_reconstruction_and_gating_methods_with_more_challenging_data_discussion}
         
