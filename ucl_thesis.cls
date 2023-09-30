@@ -438,7 +438,7 @@
     % \vfill%
     \vspace{1em}%
     \begin{center}%
-    A dissertation submitted in partial fulfillment \\
+    A thesis submitted in partial fulfillment \\
     of the requirements for the degree of \\
     \textbf{\@degree@string} \\
     of \\
